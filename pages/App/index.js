@@ -12,9 +12,12 @@ import { LightbulbOutline } from 'material-ui-icons';
 
 import Github from '../../components/Github'
 import Pagination from '../../components/Pagination'
+import NotifyBar from '../../components/NotifyBar'
+import Back2top from '../../components/Back2top'
 
 import PostCardList from './PostCardList'
 import Footer from './Footer'
+import LeftSidebar from '../LeftSidebar'
 import RightSidebar from '../RightSidebar'
 
 
@@ -52,11 +55,20 @@ class App extends React.Component {
     }
   }
 
+  notifyBarRequestClose = () => {
+    this.setState({ notifyBarOpen: false })
+  }
+
   render() {
     const { classes } = this.props;
 
     return (
       <div className={classes.root}>
+        <NotifyBar open={this.state.notifyBarOpen} 
+          text={this.state.notifyBarText}
+          notifyBarRequestClose={this.notifyBarRequestClose}
+        />
+        <Back2top />
         <Drawer open={this.state.left} onRequestClose={this.toggleDrawer('left', false)}>
           <div
             tabIndex={0}
@@ -64,7 +76,7 @@ class App extends React.Component {
             onClick={this.toggleDrawer('left', false)}
             onKeyDown={this.toggleDrawer('left', false)}
           >
-            {/* <LeftSidebar /> */}
+            <LeftSidebar />
           </div>
         </Drawer>
           <AppBar className={classes.appBar}>
