@@ -4,14 +4,21 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "express": "^4.16.2",
+    "isomorphic-unfetch": "^2.0.0",
     "next": "^4.2.1",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "material-ui": "^1.0.0-beta.24",
+    "material-ui-icons": "^1.0.0-beta.17",
+    "react-tap-event-plugin": "^3.0.2",
+    "recompose": "^0.26.0",
+    "moment": "^2.20.1"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "next"
+    "dev": "node server.js"
   },
   "repository": {
     "type": "git",
