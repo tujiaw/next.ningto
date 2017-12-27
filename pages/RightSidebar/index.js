@@ -3,6 +3,7 @@ import React from 'react';
 import { withStyles } from 'material-ui/styles';
 import PropTypes from 'prop-types';
 import { Grid } from 'material-ui'
+import Router from 'next/router'
 import ProfileCard from './ProfileCard'
 import Group from './Group'
 import utils from '../../common/utils'
@@ -15,7 +16,7 @@ const RightSideBar = (props) => {
         hotData.title = '热门文章';
         hotData.list = hotPosts;
         hotData.onItemClick = (index) => {
-            // history.push('/post/' + hotData.list[index]._id);
+            Router.push({ pathname: '/post', query: { id: hotData.list[index]._id }})
         };
     }
     if (tagsCount) {

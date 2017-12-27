@@ -18,7 +18,9 @@ function PostCard(props) {
           { objectId.toDatetime(post._id) } 阅读({ post.pv })
           </Typography>
           <Typography type="headline" component="h2">
-            <Link className={classes.title} to={'/post/' + post._id}>{ post.title }</Link>
+            <Link href={`/post?id=${post._id}`}>
+              <a>{ post.title }</a>
+            </Link>
           </Typography>
           <div className={classes.chipGroup}>
             { post.tags && post.tags.map((tag, index) => {

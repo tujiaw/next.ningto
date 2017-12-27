@@ -56,10 +56,8 @@ class Index extends React.Component {
   }
 }
 
-Index.getInitialProps = async ({ req }) => {
-  console.log('11111111111111111111111111')
+Index.getInitialProps = async (context) => {
   const postsData = await net.getPosts(1)
-  console.log(postsData)
   return { postsData }
 }
 

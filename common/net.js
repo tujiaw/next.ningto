@@ -7,7 +7,7 @@ function getData(url) {
         fetch(url).then((res) => {
             if (res && res.json) {
                 resolve(res.json());
-                window.scrollTo(0, 0)
+                // window.scrollTo(0, 0)
             }
         }).catch((error) => {
             console.log('get data error:' + error);
