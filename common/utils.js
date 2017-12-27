@@ -1,18 +1,16 @@
-
-// window.requestAnimFrame = (function(){
-//   return  window.requestAnimationFrame       ||
-//           window.webkitRequestAnimationFrame ||
-//           window.mozRequestAnimationFrame    ||
-//           function( callback ){
-//             window.setTimeout(callback, 1000 / 60);
-//           };
-// })();
-
 // main function
 function scrollToY(scrollTargetY, speed, easing) {
     // scrollTargetY: the target scrollY property of the window
     // speed: time in pixels per second
     // easing: easing equation to use
+    window.requestAnimFrame = (function(){
+        return  window.requestAnimationFrame       ||
+                window.webkitRequestAnimationFrame ||
+                window.mozRequestAnimationFrame    ||
+                function( callback ){
+                  window.setTimeout(callback, 1000 / 60);
+                };
+      })();
 
     var scrollY = window.scrollY,
         scrollTargetY = scrollTargetY || 0,

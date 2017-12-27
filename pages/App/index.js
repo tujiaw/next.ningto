@@ -108,7 +108,8 @@ class App extends React.Component {
               <main className={classes.content}>
                 <Grid container justify='center'>
                   <Grid item xs={this.contentSpacing(this.props)}>
-                    { this.HomePage() }
+                    {/* { this.HomePage() } */}
+                    { this.props.children }
                   </Grid>
                   <Hidden smDown>
                     <RightSidebar data={this.props.postsData} />
