@@ -1,14 +1,15 @@
-if (typeof window !== 'undefined') {
-  window.requestAnimFrame = (function(){
-    return  window.requestAnimationFrame       ||
-        window.webkitRequestAnimationFrame ||
-        window.mozRequestAnimationFrame    ||
-        function( callback ){
-          window.setTimeout(callback, 1000 / 60);
-        };
-    })();
-}
+'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+if (typeof window !== 'undefined') {
+    window.requestAnimFrame = function () {
+        return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function (callback) {
+            window.setTimeout(callback, 1000 / 60);
+        };
+    }();
+}
 
 // main function
 function scrollToY(scrollTargetY, speed, easing) {
@@ -28,19 +29,19 @@ function scrollToY(scrollTargetY, speed, easing) {
     // easing equations from https://github.com/danro/easing-js/blob/master/easing.js
     var PI_D2 = Math.PI / 2,
         easingEquations = {
-            easeOutSine: function (pos) {
-                return Math.sin(pos * (Math.PI / 2));
-            },
-            easeInOutSine: function (pos) {
-                return (-0.5 * (Math.cos(Math.PI * pos) - 1));
-            },
-            easeInOutQuint: function (pos) {
-                if ((pos /= 0.5) < 1) {
-                    return 0.5 * Math.pow(pos, 5);
-                }
-                return 0.5 * (Math.pow((pos - 2), 5) + 2);
+        easeOutSine: function easeOutSine(pos) {
+            return Math.sin(pos * (Math.PI / 2));
+        },
+        easeInOutSine: function easeInOutSine(pos) {
+            return -0.5 * (Math.cos(Math.PI * pos) - 1);
+        },
+        easeInOutQuint: function easeInOutQuint(pos) {
+            if ((pos /= 0.5) < 1) {
+                return 0.5 * Math.pow(pos, 5);
             }
-        };
+            return 0.5 * (Math.pow(pos - 2, 5) + 2);
+        }
+    };
 
     // add animation loop
     function tick() {
@@ -52,7 +53,7 @@ function scrollToY(scrollTargetY, speed, easing) {
         if (p < 1) {
             window.requestAnimFrame(tick);
 
-            window.scrollTo(0, scrollY + ((scrollTargetY - scrollY) * t));
+            window.scrollTo(0, scrollY + (scrollTargetY - scrollY) * t);
         } else {
             console.log('scroll done');
             window.scrollTo(0, scrollTargetY);
@@ -63,18 +64,17 @@ function scrollToY(scrollTargetY, speed, easing) {
     tick();
 }
 
-
-const utils = {
-  scroll2top: () => {
-    scrollToY(0, 1500);
-  },
-  isEmptyObject: (e) => {
-    var t;
-    for (t in e) {
-        return !1;
+var utils = {
+    scroll2top: function scroll2top() {
+        scrollToY(0, 1500);
+    },
+    isEmptyObject: function isEmptyObject(e) {
+        var t;
+        for (t in e) {
+            return !1;
+        }
+        return !0;
     }
-    return !0;
-  }
-}
+};
 
-export default utils;
+exports.default = utils;
