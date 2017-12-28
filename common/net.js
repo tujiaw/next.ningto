@@ -1,13 +1,29 @@
 import config from './config'
 import fetch from 'isomorphic-unfetch'
 
+const cacheUrl = [
+    'http://3inns.cn/api/list/?page=1'
+]
+
+const cache = {}
 function getData(url) {
+    const useCache = (cacheUrl.indexOf(url) >= 0)
     return new Promise((resolve, reject) => {
         console.log('get url:' + url)
+        if (useCache && cache[url]) {
+            console.log('from cache')
+            return resolve(cache[url])
+        }
+
         fetch(url).then((res) => {
             if (res && res.json) {
-                resolve(res.json());
-                // window.scrollTo(0, 0)
+                if (useCache) {
+                    cache[url] = res.json()
+                    resolve(cache[url])
+                } else {
+                    resolve(res.json())
+                }
+                window.scrollTo(0, 0)
             }
         }).catch((error) => {
             console.log('get data error:' + error);
