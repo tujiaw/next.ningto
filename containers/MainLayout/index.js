@@ -14,14 +14,12 @@ import Github from '../../components/Github'
 import Pagination from '../../components/Pagination'
 import NotifyBar from '../../components/NotifyBar'
 import Back2top from '../../components/Back2top'
+import Footer from '../../components/Footer'
 
-import PostCardList from './PostCardList'
-import Footer from './Footer'
-import LeftSidebar from '../LeftSidebar'
-import RightSidebar from '../RightSidebar'
+import LeftSidebar from './LeftSidebar'
+import RightSidebar from './RightSidebar'
 
-
-class App extends React.Component {
+class SubIndex extends React.Component {
   state = {
     left: false,
     notifyBarOpen: false,
@@ -30,19 +28,6 @@ class App extends React.Component {
 
   toggleDrawer = (side, open) => () => {
     this.setState({ [side]: open });
-  }
-
-  HomePage = () => {
-      if (this.props.postsData && this.props.postsData.posts) {
-        return (
-            <div>
-              <PostCardList posts={this.props.postsData.posts} />
-              <Pagination data={this.props.postsData} gotoPage={this.gotoPage}/>
-            </div>
-          )
-      } else {
-          return <h1>loadding...</h1>;
-      }
   }
 
   contentSpacing = (props) => {
@@ -108,7 +93,6 @@ class App extends React.Component {
               <main className={classes.content}>
                 <Grid container justify='center'>
                   <Grid item xs={this.contentSpacing(this.props)}>
-                    {/* { this.HomePage() } */}
                     { this.props.children }
                   </Grid>
                   <Hidden smDown>
@@ -163,11 +147,11 @@ const styles = theme => ({
   }
 });
 
-App.propTypes = {
+SubIndex.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
 export default compose(
   withStyles(styles, { withTheme: true }), 
   withWidth()
-)(App);
+)(SubIndex);

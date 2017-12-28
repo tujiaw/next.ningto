@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
-import App from './App'
-import PostCardList from './App/PostCardList'
+import MainLayout from '../containers/MainLayout'
+import PostCardList from '../containers/PostCardList'
 import Pagination from '../components/Pagination'
 import net from '../common/net'
 
@@ -48,9 +48,9 @@ class Index extends React.Component {
   render() {
     return (
       <MuiThemeProvider theme={this.state.theme}>
-        <App onLight={this.onLight} postsData={this.props.postsData}>
-        { this.HomePage() }
-        </App>
+        <MainLayout onLight={this.onLight} postsData={this.props.postsData}>
+          { this.HomePage() }
+        </MainLayout>
       </MuiThemeProvider>
     ) 
   }

@@ -6,7 +6,7 @@ import { Grid } from 'material-ui'
 import Router from 'next/router'
 import ProfileCard from './ProfileCard'
 import Group from './Group'
-import utils from '../../common/utils'
+import utils from '../../../common/utils'
 
 const RightSideBar = (props) => {
     const { classes } = props;

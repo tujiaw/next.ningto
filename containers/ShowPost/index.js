@@ -47,44 +47,44 @@ function ShowPost(props) {
 }
 
 const styles = theme => ({
-    root: {
-        marginTop: 20,
-        background: theme.palette.common.darkWhite,
-        borderRadius: 5,
-    },
-    title: {
-        color: theme.palette.text.title,
-        textDecoration: 'none',
-        fontSize: '1.2em',
-        '&:hover': {
-          color: theme.palette.text.titleHover,
-        }
-    },
-    subTitle: {
-        marginBottom: 6,
-        fontSize: 14,
-        color: theme.palette.text.secondary,
-      },
-    chipGroup: {
-        display: 'flex',
-        marginTop: 6,
-        marginBottom: 6,
-    },
-    chip: {
-        height: 25,
-        marginRight: 6,
-    },
-    reference: {
-        marginTop: 15,
-        fontSize: 11,
-        color: '#cc0000'
+  root: {
+    marginTop: 20,
+    background: theme.palette.common.darkWhite,
+    borderRadius: 5,
+  },
+  title: {
+    color: theme.palette.text.title,
+    textDecoration: 'none',
+    fontSize: '1.2em',
+    '&:hover': {
+      color: theme.palette.text.titleHover,
     }
-  });
+  },
+  subTitle: {
+    marginBottom: 6,
+    fontSize: 14,
+    color: theme.palette.text.secondary,
+  },
+  chipGroup: {
+    display: 'flex',
+    marginTop: 6,
+    marginBottom: 6,
+  },
+  chip: {
+    height: 25,
+    marginRight: 6,
+  },
+  reference: {
+    marginTop: 15,
+    fontSize: 11,
+    color: '#cc0000'
+  }
+});
 
 ShowPost.propTypes = {
   classes: PropTypes.object.isRequired,
 };
   
 export default compose(
-    withStyles(styles),
+  withStyles(styles),
 )(ShowPost);
