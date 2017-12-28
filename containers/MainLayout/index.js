@@ -20,7 +20,7 @@ import Footer from '../../components/Footer'
 import LeftSidebar from './LeftSidebar'
 import RightSidebar from './RightSidebar'
 
-class SubIndex extends React.Component {
+class MainLayout extends React.Component {
   state = {
     left: false,
     notifyBarOpen: false,
@@ -152,11 +152,11 @@ const styles = theme => ({
   }
 });
 
-SubIndex.propTypes = {
+MainLayout.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
 export default compose(
   withStyles(styles, { withTheme: true }), 
   withWidth()
-)(SubIndex);
+)(MainLayout);

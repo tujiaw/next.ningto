@@ -5,6 +5,7 @@ import { withStyles } from 'material-ui/styles';
 import ListSubheader from 'material-ui/List/ListSubheader';
 import List, { ListItem, ListItemText } from 'material-ui/List';
 import { Divider } from 'material-ui'
+import Router from 'next/router'
 
 import Loading from '../../components/Loading'
 
@@ -31,6 +32,7 @@ const styles = theme => ({
 
 class ShowTitleList extends React.Component {
   handleClick = (id) => {
+    Router.push({ pathname: '/post', query: { id: id }})
   }
 
   render() {

@@ -5,6 +5,7 @@ import MainLayout from '../containers/MainLayout'
 import PostCardList from '../containers/PostCardList'
 import Pagination from '../components/Pagination'
 import net from '../common/net'
+import Router from 'next/router'
 
 class Index extends React.Component {
   state = {
@@ -19,6 +20,10 @@ class Index extends React.Component {
         }
       },
     })
+  }
+
+  gotoPage = (page) => {
+    Router.push({ pathname: '/', query: { page: page }})
   }
 
   HomePage = () => {
@@ -57,7 +62,8 @@ class Index extends React.Component {
 }
 
 Index.getInitialProps = async (context) => {
-  const postsData = await net.getPosts(1)
+  const page = context.query.page || 1
+  const postsData = await net.getPosts(page)
   return { postsData }
 }
 

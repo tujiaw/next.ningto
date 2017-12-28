@@ -5,6 +5,7 @@ import MobileStepper from 'material-ui/MobileStepper';
 import Button from 'material-ui/Button';
 import KeyboardArrowLeft from 'material-ui-icons/KeyboardArrowLeft';
 import KeyboardArrowRight from 'material-ui-icons/KeyboardArrowRight';
+import Router from 'next/router'
 
 const styles = theme => ({
   root: {
@@ -25,11 +26,11 @@ class PostStepper extends React.Component {
   };
 
   handleNext = () => {
-    
+    Router.push({ pathname: '/post', query: { id: this.props.nextPost._id }})
   }
 
   handleBack = () => {
-    
+    Router.push({ pathname: '/post', query: { id: this.props.prevPost._id }})
   }
 
   render() {
