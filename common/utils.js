@@ -15,6 +15,9 @@ function scrollToY(scrollTargetY, speed, easing) {
     // scrollTargetY: the target scrollY property of the window
     // speed: time in pixels per second
     // easing: easing equation to use
+    if (typeof window === 'undefined') {
+      return
+    }
 
     var scrollY = window.scrollY,
         scrollTargetY = scrollTargetY || 0,
