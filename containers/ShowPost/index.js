@@ -24,7 +24,7 @@ function ShowPost(props) {
                     </Typography>
                     <Typography type="headline" component="h2">
                     <Link href={`/post?id=${post._id}`}>
-                        <a>{ post.title }</a>
+                        <a className={classes.title}>{ post.title }</a>
                     </Link>
                     </Typography>
                     <div className={classes.chipGroup}>

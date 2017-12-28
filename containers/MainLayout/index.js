@@ -9,6 +9,7 @@ import HomeIcon from 'material-ui-icons/Home'
 import compose from 'recompose/compose';
 import withWidth from 'material-ui/utils/withWidth';
 import { LightbulbOutline } from 'material-ui-icons';
+import Router from 'next/router'
 
 import Github from '../../components/Github'
 import Pagination from '../../components/Pagination'
@@ -38,6 +39,10 @@ class SubIndex extends React.Component {
     } else {
       return 8
     }
+  }
+
+  onHome = () => {
+    Router.push('/')
   }
 
   notifyBarRequestClose = () => {

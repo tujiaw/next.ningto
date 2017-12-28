@@ -25,7 +25,10 @@ const RightSideBar = (props) => {
             return { title: item.name, subTitle: item.count, keyword: item.name};
         })
         tagData.onItemClick = (index) => {
-            history.push('/title?type=tag&keyword=' + encodeURIComponent(tagData.list[index].keyword));
+            Router.push({ pathname: '/title', query: {
+                type: 'tag',
+                keyword: tagData.list[index].keyword
+            }})
         };
     }
     if (archives) {
@@ -36,7 +39,10 @@ const RightSideBar = (props) => {
             return { title: `${year}年${month}月`, subTitle: item.count, keyword: item.yearMonth};
         })
         archiveData.onItemClick = (index) => {
-            history.push('/title?type=yearMonth&keyword=' + archiveData.list[index].keyword);
+            Router.push({ pathname: '/title', query: {
+                type: 'yearMonth',
+                keyword: archiveData.list[index].keyword
+            }})
         };
     }
 
