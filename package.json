@@ -21,7 +21,8 @@
     "server": "NODE_ENV=production node server.js -p 3344",
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "deploy": "pm2 start npm --name 'ningto' -- start -p 3344"
   },
   "repository": {
     "type": "git",
