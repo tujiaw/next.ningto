@@ -11,6 +11,7 @@ import withWidth from 'material-ui/utils/withWidth';
 import { LightbulbOutline } from 'material-ui-icons';
 import Router from 'next/router'
 
+import AppSearch from '../../components/AppSearch'
 import Github from '../../components/Github'
 import Pagination from '../../components/Pagination'
 import NotifyBar from '../../components/NotifyBar'
@@ -49,6 +50,17 @@ class MainLayout extends React.Component {
     this.setState({ notifyBarOpen: false })
   }
 
+  handleSearch = (keyword) => {
+    console.log('app.js keyword:' + keyword)
+    if (keyword.length === 0) {
+      Router.push('/')
+    } else if (keyword.length === 1) {
+      this.setState({ notifyBarOpen: true, notifyBarText: '请至少输入两个字符！！！' })
+    } else if (keyword.length > 1) {
+      Router.push({ pathname: '/title', query: { type: 'search', keyword: keyword }})
+    } 
+  }
+
   render() {
     const { classes } = this.props;
 
@@ -79,9 +91,9 @@ class MainLayout extends React.Component {
                 <MenuIcon />
               </IconButton>
               <Typography type="title" color="inherit" className={classes.title} noWrap>
-                3inns.cn
+                ningto.com
               </Typography>
-              
+              <AppSearch onRequestSearch={this.handleSearch}/>
               <IconButton color="contrast" aria-label="主页"onClick={this.onHome}>
                 <HomeIcon />
               </IconButton>

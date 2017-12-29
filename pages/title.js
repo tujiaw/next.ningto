@@ -14,9 +14,13 @@ const Title = (props) => {
 }
 
 Title.getInitialProps = async (context) => {
-  const postsData = await net.getPosts(1)
-  const data = await net.getUrl(context.asPath)
-  return { postsData, data }
+  const values = await Promise.all([
+    net.getPosts(1), 
+    net.getUrl(context.asPath) 
+  ])
+  //const postsData = await net.getPosts(1)
+  //const data = await net.getUrl(context.asPath)
+  return { postsData: values[0], data: values[1] }
 }
 
 export default Title

@@ -11,8 +11,8 @@ const Post = (props) => {
       <MainLayout postsData={props.postsData}>
           <Head>
             <title>ningto.com</title>
-            <link rel="stylesheet" href="http://3inns.cn/css/github.css" />
-            <link rel="stylesheet" href="http://3inns.cn/css/github-markdown.min.css" />
+            <link rel="stylesheet" href="/static/css/github.css" />
+            <link rel="stylesheet" href="/static/css/github-markdown.min.css" />
           </Head>
             <ShowPost postData={props.postData} />
       </MainLayout>
@@ -20,9 +20,11 @@ const Post = (props) => {
 }
 
 Post.getInitialProps = async (context) => {
-    const postsData = await net.getPosts(1)
-    const postData = await net.getPost(context.query.id)
-    return { postsData, postData }
+  const values = await Promise.all([ 
+    net.getPosts(1), 
+    net.getPost(context.query.id)
+  ]);
+  return { postsData: values[0], postData: values[1] }
 }
 
 export default Post
