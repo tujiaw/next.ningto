@@ -17,6 +17,8 @@ import Pagination from '../../components/Pagination'
 import NotifyBar from '../../components/NotifyBar'
 import Back2top from '../../components/Back2top'
 import Footer from '../../components/Footer'
+import utils from '../../common/utils'
+import config from '../../common/config'
 
 import LeftSidebar from './LeftSidebar'
 import RightSidebar from './RightSidebar'
@@ -27,6 +29,10 @@ class MainLayout extends React.Component {
     notifyBarOpen: false,
     notifyBarText: '',
   };
+
+  componentDidMount() {
+    this.instance.appendChild(utils.createScript(config.BAIDU_SHARE))
+  }
 
   toggleDrawer = (side, open) => () => {
     this.setState({ [side]: open });
@@ -44,6 +50,10 @@ class MainLayout extends React.Component {
 
   onHome = () => {
     Router.push('/')
+  }
+
+  onGithub = () => {
+    window.open('https://github.com/tujiaw')
   }
 
   notifyBarRequestClose = () => {
@@ -65,7 +75,7 @@ class MainLayout extends React.Component {
     const { classes } = this.props;
 
     return (
-      <div className={classes.root}>
+      <div className={classes.root} ref={e => (this.instance = e)}>
         <NotifyBar open={this.state.notifyBarOpen} 
           text={this.state.notifyBarText}
           notifyBarRequestClose={this.notifyBarRequestClose}
@@ -91,7 +101,7 @@ class MainLayout extends React.Component {
                 <MenuIcon />
               </IconButton>
               <Typography type="title" color="inherit" className={classes.title} noWrap>
-                ningto.com
+                泞途 - ningto.com
               </Typography>
               <AppSearch onRequestSearch={this.handleSearch}/>
               <IconButton color="contrast" aria-label="主页"onClick={this.onHome}>
@@ -106,7 +116,7 @@ class MainLayout extends React.Component {
             </Toolbar>
           </AppBar>
           <Grid container justify='center'>
-            <Grid item xs={10}>
+            <Grid item xs={12}>
               <main className={classes.content}>
                 <Grid container justify='center'>
                   <Grid item xs={this.contentSpacing(this.props)}>

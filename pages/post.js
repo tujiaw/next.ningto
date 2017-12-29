@@ -9,12 +9,11 @@ const Post = (props) => {
   console.log('url:' + props.url);
     return (
       <MainLayout postsData={props.postsData}>
-          <Head>
-            <title>ningto.com</title>
-            <link rel="stylesheet" href="/static/css/github.css" />
-            <link rel="stylesheet" href="/static/css/github-markdown.min.css" />
-          </Head>
-            <ShowPost postData={props.postData} />
+        <ShowPost postData={props.postData} />
+        <Head>
+          <link rel="stylesheet" href="/static/css/github.css" />
+          <link rel="stylesheet" href="/static/css/github-markdown.min.css" />
+        </Head>
       </MainLayout>
     )
 }

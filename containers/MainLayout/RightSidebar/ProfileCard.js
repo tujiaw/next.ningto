@@ -25,7 +25,7 @@ class ProfileCard extends React.Component {
             <img className={classes.img} alt="avatar" src="http://3inns.cn/img/myavatar.jpg" />
           </a>
           <div className={classes.title}>
-            <span className={classes.mainTitle}>3inns.cn</span>
+            <span className={classes.mainTitle}>ningto.com</span>
             <span className={classes.subTitle}>Keep it simple,stupid</span>
           </div>
         </div>

@@ -9,11 +9,21 @@ import Link from 'next/link'
 
 import objectId from '../../common/objectId'
 import Loading from '../../components/Loading'
+
+import utils from '../../common/utils'
+import config from '../../common/config'
+
 import PostStepper from './PostStepper';
 
-function ShowPost(props) {
-    const { classes } = props;
-    const { post, nextPost, prevPost } = props.postData;
+class ShowPost extends React.Component {
+  componentDidMount() {
+    console.log('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
+    this.sohucs.appendChild(utils.createScript(config.SOHUCS))
+  }
+
+  render() {
+    const { classes } = this.props;
+    const { post, nextPost, prevPost } = this.props.postData;
     return post 
     ? (
         <div className={classes.root}>
@@ -34,16 +44,20 @@ function ShowPost(props) {
                     </div>
                     <div className="markdown-body" dangerouslySetInnerHTML={{ __html: post.content }}></div>
                     <footer className={classes.reference}>
-                        <strong>（转载本站文章请注明作者和出处：<a href="http://3inns.cn">三家店 - 3inns.cn</a></strong>
+                        <strong>（转载本站文章请注明作者和出处：<a href="http://ningto.com">泞途 - ningto.com</a></strong>
                     </footer>
                 </CardContent>
             <CardActions>
                 <PostStepper nextPost={nextPost} prevPost={prevPost} />
             </CardActions>
             </Card>
+            <div className={classes.sohucsWrap}>
+              <div id="SOHUCS" ref={e => (this.sohucs = e)}></div>
+            </div>
         </div>
     )
     : <Loading />;
+  }
 }
 
 const styles = theme => ({
@@ -78,6 +92,9 @@ const styles = theme => ({
     marginTop: 15,
     fontSize: 11,
     color: '#cc0000'
+  },
+  sohucsWrap: {
+    margin: 10
   }
 });
 

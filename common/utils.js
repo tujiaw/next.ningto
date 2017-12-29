@@ -77,6 +77,13 @@ const utils = {
         return !1;
     }
     return !0;
+  },
+  createScript: (scriptStr) => {
+    const s = document.createElement('script')
+    s.type = 'text/javascript'
+    s.async = true
+    s.innerHTML = scriptStr
+    return s
   }
 }
 
