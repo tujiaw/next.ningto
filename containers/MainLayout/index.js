@@ -119,17 +119,18 @@ class MainLayout extends React.Component {
             <Grid item xs={12}>
               <main className={classes.content}>
                 <Grid container justify='center'>
-                  <Grid item xs={this.contentSpacing(this.props)}>
+                  <Grid className={classes.children} item xs={this.contentSpacing(this.props)}>
                     { this.props.children }
                   </Grid>
                   <Hidden smDown>
                     <RightSidebar data={this.props.postsData} />
                   </Hidden>
+                  <div className={classes.bgright}></div>
+                  <Footer />
                 </Grid>
               </main>
             </Grid>
           </Grid>
-        { Object.keys(this.props.postsData).length ? <Footer /> : null}
       </div>
     );
   }
@@ -143,8 +144,6 @@ const styles = theme => ({
     overflow: 'hidden',
     // background: theme.palette.grey[400],
     backgroundColor: 'rgb(231, 238, 244)',
-    
-    // backgroundAttachment: 'fixed'
   },
   appFrame: {
     display: 'flex',
@@ -159,6 +158,17 @@ const styles = theme => ({
     [theme.breakpoints.up('md')]: {
       display: 'none',
     },
+  },
+  children: {
+    zIndex: 1,
+  },
+  bgright: {
+    top: 0,
+    right: 0,
+    width: 271,
+    height: '100%',
+    position: 'fixed',
+    background: 'url(/static/img/bgright.jpg) no-repeat',
   },
   content: {
     // backgroundColor: theme.palette.background.default,
