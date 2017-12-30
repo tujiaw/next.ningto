@@ -81,7 +81,7 @@ class MainLayout extends React.Component {
           notifyBarRequestClose={this.notifyBarRequestClose}
         />
         <Back2top />
-        <Drawer open={this.state.left} onRequestClose={this.toggleDrawer('left', false)}>
+        <Drawer open={this.state.left} onClose={this.toggleDrawer('left', false)}>
           <div
             tabIndex={0}
             role="button"

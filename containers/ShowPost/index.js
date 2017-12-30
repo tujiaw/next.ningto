@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import Card, { CardActions, CardContent } from 'material-ui/Card';
 import Chip from 'material-ui/Chip';
 import Typography from 'material-ui/Typography';
+import ExpansionPanel, { ExpansionPanelSummary, ExpansionPanelDetails } from 'material-ui/ExpansionPanel';
+import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
 import compose from 'recompose/compose'
 import Link from 'next/link'
 
@@ -17,7 +19,7 @@ import PostStepper from './PostStepper';
 
 const ShowPost = (props) => {
   const { classes } = props;
-  const { post, nextPost, prevPost } = props.postData;
+  const { toc, post, nextPost, prevPost } = props.postData;
   return post 
   ? (
       <div className={classes.root}>
@@ -36,6 +38,15 @@ const ShowPost = (props) => {
                       return tag.length ? <Chip key={index} className={classes.chip} label={tag} /> : null
                   })}
                   </div>
+                  <ExpansionPanel className={classes.toc} defaultExpanded={true}>
+                    <ExpansionPanelSummary className={classes.tocSummary} expandIcon={<ExpandMoreIcon />}>
+                      <Typography>文章目录</Typography>
+                    </ExpansionPanelSummary>
+                    <ExpansionPanelDetails className={classes.tocDetails}>
+                      <div dangerouslySetInnerHTML={{ __html: toc }}></div>
+                    </ExpansionPanelDetails>
+                  </ExpansionPanel>
+                  
                   <div className="markdown-body" dangerouslySetInnerHTML={{ __html: post.content }}></div>
                   <footer className={classes.reference}>
                       <strong>（转载本站文章请注明作者和出处：<a href="http://ningto.com">泞途 - ningto.com</a></strong>
@@ -55,6 +66,13 @@ const styles = theme => ({
     marginTop: 20,
     background: theme.palette.common.darkWhite,
     borderRadius: 5,
+    // 锚点偏移
+    '& .anchor-fix': { 
+      display: 'block',
+      height: 64, /*same height as header*/
+      marginTop: -64, /*same height as header*/
+      visibility: 'hidden'
+    },
   },
   title: {
     color: theme.palette.text.title,
@@ -77,6 +95,40 @@ const styles = theme => ({
   chip: {
     height: 25,
     marginRight: 6,
+  },
+  toc: {
+    float: 'right',
+    border:'1 solid #e2e2e2',
+    background: '#eee',
+    borderRadius: 4,
+    border: '1 solid #ddd',
+    maxWidth: 250,
+    minWidth: 90,
+    fontSize: 12,
+    margin: 0,
+    padding: 0,
+    marginLeft: 10,
+    '& ul': {
+      margin: 0,
+      padding: 0,
+      paddingLeft: '1em',
+    },
+    '& a': {
+      color: '#4078c0',
+      textDecoration: 'none',
+      '&:hover': {
+        color: '#f00'
+      },
+    }
+  },
+  tocSummary: {
+    minHeight: 36,
+    maxHeight: 36,
+  },
+  tocDetails: {
+    padding: 0,
+    margin: 20,
+    marginTop: 0,
   },
   reference: {
     marginTop: 15,

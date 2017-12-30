@@ -28,7 +28,7 @@ class LeftSidebar extends React.Component {
     const { classes } = this.props;
 
     return (
-      <List className={classes.root} subheader={<ListSubheader>3inns.cn</ListSubheader>}>
+      <List className={classes.root} subheader={<ListSubheader>ningto.com</ListSubheader>}>
         <ListItem button onClick={this.handleClick.bind(this, 'http://3inns.cn')}>
           <ListItemIcon><Home /></ListItemIcon>
           <ListItemText inset primary="主页" />
@@ -53,7 +53,7 @@ class LeftSidebar extends React.Component {
           <ListItemIcon><Favorite /></ListItemIcon>
           <ListItemText inset primary="书签" />
         </ListItem>
-        <Collapse component="li" in={this.state.open} transitionDuration="auto" unmountOnExit>
+        <Collapse component="li" in={this.state.open} transitionduration="auto" unmountOnExit>
           <List disablePadding>
             <ListItem button className={classes.nested} onClick={this.handleClick.bind(this, 'http://3inns.cn/mdviewer')}>
               <ListItemText primary="Markdown预览" />
