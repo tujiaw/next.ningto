@@ -84,7 +84,17 @@ const utils = {
     s.async = true
     s.innerHTML = scriptStr
     return s
-  }
+  },
+  preventRepeatExecute: (fn, timeout) => {
+    const ms = timeout || 200
+    let t
+    return function() {
+        if (t) {
+            clearTimeout(t)
+        }
+        t = setTimeout(fn, ms)
+      };
+    }
 }
 
 export default utils;

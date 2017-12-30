@@ -141,7 +141,10 @@ const styles = theme => ({
     height: '100%',
     zIndex: 1,
     overflow: 'hidden',
-    background: theme.palette.grey[400],
+    // background: theme.palette.grey[400],
+    backgroundColor: 'rgb(231, 238, 244)',
+    
+    // backgroundAttachment: 'fixed'
   },
   appFrame: {
     display: 'flex',
@@ -162,6 +165,9 @@ const styles = theme => ({
     width: '100%',
     height: 'calc(100% - 60px)',
     marginTop: 60,
+    background:'url(/static/img/bgleft.jpg) no-repeat',
+    backgroundAttachment: 'fixed',
+
     [theme.breakpoints.up('md')]: {
       height: 'calc(100% - 60px)',
       marginTop: 60,

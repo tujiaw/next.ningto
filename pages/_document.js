@@ -18,7 +18,7 @@ export default class MyDocument extends Document {
           <meta name="description" content="泞途 ningto.com" />
           <title>泞途-ningto.com</title>
           <link rel="shortcut icon" type="image/ico" href="/static/favicon.ico" />
-          <style>{`body { margin: 0 } /* custom! */`}</style>
+          <style>{`body { margin: 0;}`}</style>
         </Head>
         <body className="custom_class">
           {this.props.customValue}

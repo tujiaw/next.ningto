@@ -15,49 +15,39 @@ import config from '../../common/config'
 
 import PostStepper from './PostStepper';
 
-class ShowPost extends React.Component {
-  componentDidMount() {
-    console.log('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
-    this.sohucs.appendChild(utils.createScript(config.SOHUCS))
-  }
-
-  render() {
-    const { classes } = this.props;
-    const { post, nextPost, prevPost } = this.props.postData;
-    return post 
-    ? (
-        <div className={classes.root}>
-            <Card className={classes.card}>
-                <CardContent>
-                    <Typography type="body1" className={classes.subTitle}>
-                    { objectId.toDatetime(post._id) } 阅读({ post.pv })
-                    </Typography>
-                    <Typography type="headline" component="h2">
-                    <Link href={`/post?id=${post._id}`}>
-                        <a className={classes.title}>{ post.title }</a>
-                    </Link>
-                    </Typography>
-                    <div className={classes.chipGroup}>
-                    { post.tags && post.tags.map((tag, index) => {
-                        return tag.length ? <Chip key={index} className={classes.chip} label={tag} /> : null
-                    })}
-                    </div>
-                    <div className="markdown-body" dangerouslySetInnerHTML={{ __html: post.content }}></div>
-                    <footer className={classes.reference}>
-                        <strong>（转载本站文章请注明作者和出处：<a href="http://ningto.com">泞途 - ningto.com</a></strong>
-                    </footer>
-                </CardContent>
-            <CardActions>
-                <PostStepper nextPost={nextPost} prevPost={prevPost} />
-            </CardActions>
-            </Card>
-            <div className={classes.sohucsWrap}>
-              <div id="SOHUCS" ref={e => (this.sohucs = e)}></div>
-            </div>
-        </div>
-    )
-    : <Loading />;
-  }
+const ShowPost = (props) => {
+  const { classes } = props;
+  const { post, nextPost, prevPost } = props.postData;
+  return post 
+  ? (
+      <div className={classes.root}>
+          <Card className={classes.card}>
+              <CardContent>
+                  <Typography type="body1" className={classes.subTitle}>
+                  { objectId.toDatetime(post._id) } 阅读({ post.pv })
+                  </Typography>
+                  <Typography type="headline" component="h2">
+                  <Link href={`/post?id=${post._id}`}>
+                      <a className={classes.title}>{ post.title }</a>
+                  </Link>
+                  </Typography>
+                  <div className={classes.chipGroup}>
+                  { post.tags && post.tags.map((tag, index) => {
+                      return tag.length ? <Chip key={index} className={classes.chip} label={tag} /> : null
+                  })}
+                  </div>
+                  <div className="markdown-body" dangerouslySetInnerHTML={{ __html: post.content }}></div>
+                  <footer className={classes.reference}>
+                      <strong>（转载本站文章请注明作者和出处：<a href="http://ningto.com">泞途 - ningto.com</a></strong>
+                  </footer>
+              </CardContent>
+          <CardActions>
+              <PostStepper nextPost={nextPost} prevPost={prevPost} />
+          </CardActions>
+          </Card>
+      </div>
+  )
+  : <Loading />;
 }
 
 const styles = theme => ({
