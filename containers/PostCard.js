@@ -42,6 +42,7 @@ const styles = theme => ({
     root: {
       background: theme.palette.background.paper,
       borderRadius: 5,
+      width: '100%'
     },
     title: {
       color: theme.palette.text.title,
