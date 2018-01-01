@@ -18,11 +18,16 @@ const styles = {
     flex: 1,
   },
   card: {
-    maxWidth: 345,
-    margin: 10,
+    maxWidth: 340,
+    margin: 5,
+    borderRadius: 5
+  },
+  content: {
+    paddingBottom: 0
   },
   media: {
     height: 180,
+    borderRadius: 5
   },
 };
 
@@ -97,7 +102,7 @@ function Program(props) {
             image={item.image}
             title={item.title}
           />
-          <CardContent>
+          <CardContent className={classes.content}>
             <Typography type="headline" component="h2">{item.title}</Typography>
             <Typography type="caption">{item.type}</Typography>
             <Typography component="p">{item.desc}</Typography>
