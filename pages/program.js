@@ -86,7 +86,7 @@ const list = [
 function Program(props) {
   const { classes } = props;
   return (
-    <MainLayout postsData={props.postsData}>
+    <MainLayout rightSidebarData={props.rightSidebarData}>
     <Typography type="headline" component="h1" className={classes.title}>小程序，仅供学习之用</Typography>
     <div className={classes.root}>
     {list.map((item, index) => {
@@ -114,10 +114,8 @@ function Program(props) {
 }
 
 Program.getInitialProps = async (context) => {
-  const values = await Promise.all([
-    net.getPosts(1), 
-  ])
-  return { postsData: values[0] }
+  const result = await net.getRightSidebarData()
+  return { rightSidebarData: result.rightSidebarData }
 }
 
 Program.propTypes = {

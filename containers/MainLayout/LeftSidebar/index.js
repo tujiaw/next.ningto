@@ -50,7 +50,7 @@ class LeftSidebar extends React.Component {
           <ListItemIcon><GetApp /></ListItemIcon>
           <ListItemText inset primary="小程序" />
         </ListItem>
-        <ListItem button onClick={this.handleClick.bind(this, 'http://3inns.cn/post/59edecd82be91645212c9981')}>
+        <ListItem button onClick={() => Router.push(`/post?id=59edecd82be91645212c9981`)}>
           <ListItemIcon><Favorite /></ListItemIcon>
           <ListItemText inset primary="书签" />
         </ListItem>

@@ -123,7 +123,7 @@ class MainLayout extends React.Component {
                     { this.props.children }
                   </Grid>
                   <Hidden smDown>
-                    <RightSidebar data={this.props.postsData} />
+                    {this.props.rightSidebarData ? <RightSidebar data={this.props.rightSidebarData}/> : null}
                   </Hidden>
                   <div className={classes.bgright}></div>
                   <Footer />

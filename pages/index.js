@@ -53,7 +53,7 @@ class Index extends React.Component {
   render() {
     return (
       <MuiThemeProvider theme={this.state.theme}>
-        <MainLayout onLight={this.onLight} postsData={this.props.postsData}>
+        <MainLayout onLight={this.onLight} rightSidebarData={this.props.rightSidebarData}>
           { this.HomePage() }
         </MainLayout>
       </MuiThemeProvider>
@@ -63,8 +63,8 @@ class Index extends React.Component {
 
 Index.getInitialProps = async (context) => {
   const page = context.query.page || 1
-  const postsData = await net.getPosts(page)
-  return { postsData }
+  const result = await net.getPosts(page)
+  return { rightSidebarData: result.rightSidebarData, postsData: result }
 }
 
 

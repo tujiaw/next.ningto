@@ -8,7 +8,7 @@ import Head from 'next/head'
 const Post = (props) => {
   console.log('url:' + props.url);
     return (
-      <MainLayout postsData={props.postsData}>
+      <MainLayout rightSidebarData={props.rightSidebarData}>
         <ShowPost postData={props.postData} />
         <Head>
           <link rel="stylesheet" href="/static/css/github.css" />
@@ -19,11 +19,8 @@ const Post = (props) => {
 }
 
 Post.getInitialProps = async (context) => {
-  const values = await Promise.all([ 
-    net.getPosts(1), 
-    net.getPost(context.query.id)
-  ]);
-  return { postsData: values[0], postData: values[1] }
+  const result = await net.getPost(context.query.id)
+  return { rightSidebarData: result.rightSidebarData, postData: result }
 }
 
 export default Post

@@ -19,6 +19,9 @@ const net = {
     getUrl: (url) =>{
         return getData(config.API_PREFIX + url);
     },
+    getRightSidebarData: () => {
+        return getData(config.API_PREFIX + '/rightsidebar')
+    },
     getPosts: (page) => {
         page = page ? ('/?page=' + page) : '';
         return getData(config.API_PREFIX + '/list' + page);

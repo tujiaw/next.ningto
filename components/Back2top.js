@@ -7,7 +7,6 @@ class Back2top extends React.Component {
   }
 
   onScroll = (event) => {
-    console.log(event)
     let scrollTop = 0
     if (event.srcElement) {
       scrollTop = event.srcElement.body.scrollTop
@@ -18,7 +17,6 @@ class Back2top extends React.Component {
     if (scrollTop === 0) {
       scrollTop = document.documentElement.scrollTop
     }
-    console.log(scrollTop)
     this.setState({ visible: scrollTop > 300 });
   }
 
