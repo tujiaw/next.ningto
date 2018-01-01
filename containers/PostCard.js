@@ -7,6 +7,7 @@ import Chip from 'material-ui/Chip';
 import Typography from 'material-ui/Typography';
 import objectId from '../common/objectId'
 import Link from 'next/link'
+import Router from 'next/router'
 
 function PostCard(props) {
   const { classes, post } = props;
@@ -32,7 +33,7 @@ function PostCard(props) {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button dense onClick={() => {  }}>阅读全文 »</Button>
+          <Button dense onClick={() => { Router.push(`/post?id=${post._id}`) }}>阅读全文 »</Button>
         </CardActions>
       </Card>
   );

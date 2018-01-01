@@ -1,13 +1,11 @@
 import React from 'react'
 
-class Footer extends React.Component {
-  render() {
-    return (
-      <div style={Styles.root}>
-          鄂ICP备17003086号-1. Copyright © 2016. All Rights Reserved. 
-      </div>
-    )
-  }
+const Footer = () => {
+  return (
+    <div style={Styles.root}>
+      鄂ICP备17003086号-1. Copyright © 2016. All Rights Reserved. 
+    </div>
+  )
 }
 
 const Styles = {

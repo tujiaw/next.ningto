@@ -5,6 +5,7 @@ import ListSubheader from 'material-ui/List/ListSubheader';
 import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
 import Collapse from 'material-ui/transitions/Collapse';
 import { AccountBox, Archive, Search, GetApp, Favorite, Home } from 'material-ui-icons'
+import Router from 'next/router'
 
 const styles = theme => ({
   root: {
@@ -45,7 +46,7 @@ class LeftSidebar extends React.Component {
           <ListItemIcon><Search /></ListItemIcon>
           <ListItemText inset primary="搜索" />
         </ListItem>
-        <ListItem button onClick={this.handleClick.bind(this, 'http://3inns.cn/program')}>
+        <ListItem button onClick={() => Router.push('/program')}>
           <ListItemIcon><GetApp /></ListItemIcon>
           <ListItemText inset primary="小程序" />
         </ListItem>

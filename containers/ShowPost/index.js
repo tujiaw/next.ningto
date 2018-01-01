@@ -38,15 +38,16 @@ const ShowPost = (props) => {
                       return tag.length ? <Chip key={index} className={classes.chip} label={tag} /> : null
                   })}
                   </div>
-                  <ExpansionPanel className={classes.toc} defaultExpanded={true}>
-                    <ExpansionPanelSummary className={classes.tocSummary} expandIcon={<ExpandMoreIcon />}>
-                      <Typography>文章目录</Typography>
-                    </ExpansionPanelSummary>
-                    <ExpansionPanelDetails className={classes.tocDetails}>
-                      <div dangerouslySetInnerHTML={{ __html: toc }}></div>
-                    </ExpansionPanelDetails>
-                  </ExpansionPanel>
-                  
+                  { toc && toc.length && 
+                    <ExpansionPanel className={classes.toc} defaultExpanded={true}>
+                      <ExpansionPanelSummary className={classes.tocSummary} expandIcon={<ExpandMoreIcon />}>
+                        <Typography>文章目录</Typography>
+                      </ExpansionPanelSummary>
+                      <ExpansionPanelDetails className={classes.tocDetails}>
+                        <div dangerouslySetInnerHTML={{ __html: toc }}></div>
+                      </ExpansionPanelDetails>
+                    </ExpansionPanel>
+                  }
                   <div className="markdown-body" dangerouslySetInnerHTML={{ __html: post.content }}></div>
                   <footer className={classes.reference}>
                       <strong>（转载本站文章请注明作者和出处：<a href="http://ningto.com">泞途 - ningto.com</a></strong>
