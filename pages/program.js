@@ -8,11 +8,14 @@ import MainLayout from '../containers/MainLayout'
 import net from '../common/net'
 
 const styles = {
+  title: {
+    marginTop: 20,
+    fontWeight: 'bold',
+  },
   root: {
     display: 'flex',
     flexWrap: 'wrap',
     flex: 1,
-    marginTop: 10,
   },
   card: {
     maxWidth: 345,
@@ -84,6 +87,7 @@ function Program(props) {
   const { classes } = props;
   return (
     <MainLayout postsData={props.postsData}>
+    <Typography type="headline" component="h1" className={classes.title}>小程序，仅供学习之用</Typography>
     <div className={classes.root}>
     {list.map((item, index) => {
       return (
