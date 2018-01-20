@@ -8,6 +8,7 @@ import Card, { CardContent } from 'material-ui/Card';
 const styles = theme => ({
   root: {
     // background: theme.palette.background.default,
+    marginTop: 10,
   },
   listItem: {
     padding: 6,

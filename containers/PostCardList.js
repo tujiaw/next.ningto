@@ -12,7 +12,9 @@ function PostCardList(props) {
         <List className={classes.list}>                
             { posts 
             ? posts.map((post, index) => {
-                  return <ListItem key={index}><PostCard post={post}/></ListItem>
+                  return <ListItem key={index} className={classes.listItem}>
+                    <PostCard post={post}/>
+                  </ListItem>
                 })
             :  <Loading />
             }
@@ -25,6 +27,11 @@ const styles = theme => ({
   root: {
   },
   list: {
+    paddingTop: 0,
+  },
+  listItem: {
+    padding: 0,
+    paddingBottom: 1,
   },
   loading: {
     display: 'flex',

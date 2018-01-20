@@ -64,9 +64,9 @@ const ShowPost = (props) => {
 
 const styles = theme => ({
   root: {
-    marginTop: 20,
     background: theme.palette.common.darkWhite,
     borderRadius: 5,
+    paddingTop: 0,
     // 锚点偏移
     '& .anchor-fix': { 
       display: 'block',

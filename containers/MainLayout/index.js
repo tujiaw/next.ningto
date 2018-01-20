@@ -40,7 +40,7 @@ class MainLayout extends React.Component {
 
   contentSpacing = (props) => {
     if (props.width === 'xs') {
-      return 12
+      return 11
     } else if (props.width === 'sm') {
       return 10
     } else {
@@ -116,7 +116,7 @@ class MainLayout extends React.Component {
             </Toolbar>
           </AppBar>
           <Grid container justify='center'>
-            <Grid item xs={12}>
+            <Grid item xs={11}>
               <main className={classes.content}>
                 <Grid container justify='center'>
                   <Grid className={classes.children} item xs={this.contentSpacing(this.props)}>
@@ -167,20 +167,20 @@ const styles = theme => ({
     right: 0,
     width: 271,
     height: '100%',
-    position: 'fixed',
-    background: 'url(/static/img/bgright.jpg) no-repeat',
+    // position: 'fixed',
+    // background: 'url(/static/img/bgright.jpg) no-repeat',
   },
   content: {
     // backgroundColor: theme.palette.background.default,
     width: '100%',
-    height: 'calc(100% - 60px)',
-    marginTop: 60,
-    background:'url(/static/img/bgleft.jpg) no-repeat',
-    backgroundAttachment: 'fixed',
+    height: 'calc(100% - 80px)',
+    marginTop: 80,
+    // background:'url(/static/img/bgleft.jpg) no-repeat',
+    // backgroundAttachment: 'fixed',
 
     [theme.breakpoints.up('md')]: {
-      height: 'calc(100% - 60px)',
-      marginTop: 60,
+      height: 'calc(100% - 80px)',
+      marginTop: 80,
     },
   },
   side: {

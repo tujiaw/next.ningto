@@ -12,7 +12,6 @@ import Loading from '../../components/Loading'
 const styles = theme => ({
   root: {
     width: '100%',
-    marginTop: 20,
     overflow: 'auto',
     background: theme.palette.background.paper,
     borderRadius: 5,

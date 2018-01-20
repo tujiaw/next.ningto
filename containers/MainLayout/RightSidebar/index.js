@@ -49,11 +49,8 @@ const RightSideBar = (props) => {
     return (
       <Grid item xs={4} className={classes.root}>
         {profile && <ProfileCard profile={profile} />}
-        <br />
         {!utils.isEmptyObject(hotData) && <Group data={hotData} />}
-        <br />
         {!utils.isEmptyObject(tagData) && <Group data={tagData} />}
-        <br />
         {!utils.isEmptyObject(archiveData) && <Group data={archiveData} />}
       </Grid>
     )
@@ -63,7 +60,6 @@ const styles = theme => ({
     root: {
         minWidth: 260,
         maxWidth: 260,
-        marginTop: 20,
         zIndex: 2,
     }
 });
