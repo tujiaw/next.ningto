@@ -39,12 +39,13 @@ class MainLayout extends React.Component {
   }
 
   contentSpacing = (props) => {
-    if (props.width === 'xs') {
-      return 11
-    } else if (props.width === 'sm') {
-      return 10
-    } else {
+    console.log('111111111111:' + props.width)
+    if (props.width === 'xs' || props.width === 'lg') {
       return 8
+    } else if (props.width === 'sm') {
+      return 12
+    } else {
+      return 7
     }
   }
 
@@ -116,7 +117,7 @@ class MainLayout extends React.Component {
             </Toolbar>
           </AppBar>
           <Grid container justify='center'>
-            <Grid item xs={11}>
+            <Grid item xs={12}>
               <main className={classes.content}>
                 <Grid container justify='center'>
                   <Grid className={classes.children} item xs={this.contentSpacing(this.props)}>
