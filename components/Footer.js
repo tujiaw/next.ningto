@@ -10,16 +10,14 @@ const Footer = () => {
 
 const Styles = {
   root: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
     color: '#fff',
     fontSize: 13,
     width: '100%',
-    height: 40,
+    height: 45,
     marginTop: '1em',
+    paddingTop: 12,
     background: 'rgba(10, 10, 10, 0.7)',
-    padding: '0 2% .5em',
+    textAlign: 'center',
     zIndex:1100,
   }
 }
