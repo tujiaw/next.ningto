@@ -8,7 +8,6 @@ import MenuIcon from 'material-ui-icons/Menu'
 import HomeIcon from 'material-ui-icons/Home'
 import compose from 'recompose/compose';
 import withWidth from 'material-ui/utils/withWidth';
-import { LightbulbOutline } from 'material-ui-icons';
 import Router from 'next/router'
 
 import AppSearch from '../../components/AppSearch'
@@ -39,14 +38,11 @@ class MainLayout extends React.Component {
   }
 
   contentSpacing = (props) => {
-    console.log('111111111111:' + props.width)
-    if (props.width === 'xs' || props.width === 'lg') {
-      return 8
-    } else if (props.width === 'sm') {
-      return 12
-    } else {
-      return 7
+    if (utils.mobile()) {
+      return 12;
     }
+    const size = { 'xs': 10, 'sm': 10, 'md': 7, 'lg': 6, 'xl': 6 }
+    return size[props.width] || 10
   }
 
   onHome = () => {
@@ -108,16 +104,12 @@ class MainLayout extends React.Component {
               <IconButton color="contrast" aria-label="主页"onClick={this.onHome}>
                 <HomeIcon />
               </IconButton>
-              <IconButton color="contrast" aria-label="开关灯"onClick={this.props.onLight}>
-                <LightbulbOutline />
-              </IconButton>
               <IconButton color="contrast" aria-label="github"onClick={this.onGithub}>
               <Github />
               </IconButton>
             </Toolbar>
           </AppBar>
-          <Grid container justify='center'>
-            <Grid item xs={12}>
+          <Grid container justify='center' item xs={12}>
               <main className={classes.content}>
                 <Grid container justify='center'>
                   <Grid className={classes.children} item xs={this.contentSpacing(this.props)}>
@@ -126,11 +118,10 @@ class MainLayout extends React.Component {
                   <Hidden smDown>
                     {this.props.rightSidebarData ? <RightSidebar data={this.props.rightSidebarData}/> : null}
                   </Hidden>
-                  <div className={classes.bgright}></div>
+                  {/* <div className={classes.bgright}></div> */}
                   <Footer />
                 </Grid>
               </main>
-            </Grid>
           </Grid>
       </div>
     );
@@ -168,8 +159,8 @@ const styles = theme => ({
     right: 0,
     width: 271,
     height: '100%',
-    // position: 'fixed',
-    // background: 'url(/static/img/bgright.jpg) no-repeat',
+    position: 'fixed',
+    background: 'url(/static/img/bgright.jpg) no-repeat',
   },
   content: {
     // backgroundColor: theme.palette.background.default,

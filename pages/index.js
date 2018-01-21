@@ -39,21 +39,10 @@ class Index extends React.Component {
     }
 }
 
-  onLight = () => {
-    const newType = this.state.theme.palette.type === 'light' ? 'dark' : 'light'
-    this.setState({
-      theme: createMuiTheme({
-        palette: {
-          type: newType
-        },
-      })
-    })
-  }
-
   render() {
     return (
       <MuiThemeProvider theme={this.state.theme}>
-        <MainLayout onLight={this.onLight} rightSidebarData={this.props.rightSidebarData}>
+        <MainLayout rightSidebarData={this.props.rightSidebarData}>
           { this.HomePage() }
         </MainLayout>
       </MuiThemeProvider>

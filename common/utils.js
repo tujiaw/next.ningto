@@ -66,6 +66,25 @@ function scrollToY(scrollTargetY, speed, easing) {
     tick();
 }
 
+var isMobile = {
+  Android: function() {
+    return /Android/i.test(navigator.userAgent);
+  },
+  BlackBerry: function() {
+    return /BlackBerry/i.test(navigator.userAgent);
+  },
+  IOS: function() {
+    return /iPhone|iPad|iPod/i.test(navigator.userAgent);
+  },
+  Windows: function() {
+    return /IEMobile/i.test(navigator.userAgent);
+  },
+  any: function() {
+    return (isMobile.Android() || isMobile.BlackBerry() || isMobile.IOS() || isMobile.Windows());
+  }
+};
+
+const isMobileBrowser = isMobile.any();
 
 const utils = {
   scroll2top: () => {
@@ -87,14 +106,17 @@ const utils = {
   },
   preventRepeatExecute: (fn, timeout) => {
     const ms = timeout || 200
-    let t
+    let t;
     return function() {
-        if (t) {
-            clearTimeout(t)
-        }
-        t = setTimeout(fn, ms)
-      };
-    }
+      if (t) {
+          clearTimeout(t)
+      }
+      t = setTimeout(fn, ms)
+    };
+  },
+  mobile: () => {
+    return isMobileBrowser;
+  }
 }
 
 export default utils;
