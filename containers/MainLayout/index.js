@@ -39,11 +39,11 @@ class MainLayout extends React.Component {
   }
 
   contentSpacing = (props) => {
-    console.log('111111111111:' + props.width)
+    console.log('width:' + props.width)
     if (props.width === 'xs' || props.width === 'lg') {
       return 8
     } else if (props.width === 'sm') {
-      return 12
+      return 10
     } else {
       return 7
     }
