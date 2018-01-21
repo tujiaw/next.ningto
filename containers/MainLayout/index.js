@@ -38,7 +38,7 @@ class MainLayout extends React.Component {
   }
 
   contentSpacing = (props) => {
-    if (utils.mobile()) {
+    if (window && window.isMobile && window.isMobile.any()) {
       return 12;
     }
     const size = { 'xs': 10, 'sm': 10, 'md': 7, 'lg': 6, 'xl': 6 }

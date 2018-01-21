@@ -7,6 +7,24 @@ if (typeof window !== 'undefined') {
           window.setTimeout(callback, 1000 / 60);
         };
     })();
+
+  window.isMobile = {
+      Android: function() {
+        return /Android/i.test(navigator.userAgent);
+      },
+      BlackBerry: function() {
+        return /BlackBerry/i.test(navigator.userAgent);
+      },
+      IOS: function() {
+        return /iPhone|iPad|iPod/i.test(navigator.userAgent);
+      },
+      Windows: function() {
+        return /IEMobile/i.test(navigator.userAgent);
+      },
+      any: function() {
+        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.IOS() || isMobile.Windows());
+      }
+    };
 }
 
 
@@ -66,26 +84,6 @@ function scrollToY(scrollTargetY, speed, easing) {
     tick();
 }
 
-var isMobile = {
-  Android: function() {
-    return /Android/i.test(navigator.userAgent);
-  },
-  BlackBerry: function() {
-    return /BlackBerry/i.test(navigator.userAgent);
-  },
-  IOS: function() {
-    return /iPhone|iPad|iPod/i.test(navigator.userAgent);
-  },
-  Windows: function() {
-    return /IEMobile/i.test(navigator.userAgent);
-  },
-  any: function() {
-    return (isMobile.Android() || isMobile.BlackBerry() || isMobile.IOS() || isMobile.Windows());
-  }
-};
-
-const isMobileBrowser = isMobile.any();
-
 const utils = {
   scroll2top: () => {
     scrollToY(0, 1500);
@@ -113,9 +111,6 @@ const utils = {
       }
       t = setTimeout(fn, ms)
     };
-  },
-  mobile: () => {
-    return isMobileBrowser;
   }
 }
 
