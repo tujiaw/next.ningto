@@ -8,6 +8,26 @@ var _defineProperty2 = require('babel-runtime/helpers/defineProperty');
 
 var _defineProperty3 = _interopRequireDefault(_defineProperty2);
 
+var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -46,6 +66,10 @@ var _link = require('next/dist/lib/link.js');
 
 var _link2 = _interopRequireDefault(_link);
 
+var _gitment = require('gitment');
+
+var _gitment2 = _interopRequireDefault(_gitment);
+
 var _objectId = require('../../common/objectId');
 
 var _objectId2 = _interopRequireDefault(_objectId);
@@ -68,18 +92,47 @@ var _PostStepper2 = _interopRequireDefault(_PostStepper);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var ShowPost = function ShowPost(props) {
-  var classes = props.classes;
-  var _props$postData = props.postData,
-      toc = _props$postData.toc,
-      post = _props$postData.post,
-      nextPost = _props$postData.nextPost,
-      prevPost = _props$postData.prevPost;
+var ShowPost = function (_React$Component) {
+  (0, _inherits3.default)(ShowPost, _React$Component);
 
-  return post ? _react2.default.createElement('div', { className: classes.root }, _react2.default.createElement(_Card2.default, { className: classes.card }, _react2.default.createElement(_Card.CardContent, null, _react2.default.createElement(_Typography2.default, { type: 'body1', className: classes.subTitle }, _objectId2.default.toDatetime(post._id), ' \u9605\u8BFB(', post.pv, ')'), _react2.default.createElement(_Typography2.default, { type: 'headline', component: 'h2' }, _react2.default.createElement(_link2.default, { href: '/post?id=' + post._id }, _react2.default.createElement('a', { className: classes.title }, post.title))), _react2.default.createElement('div', { className: classes.chipGroup }, post.tags && post.tags.map(function (tag, index) {
-    return tag.length ? _react2.default.createElement(_Chip2.default, { key: index, className: classes.chip, label: tag }) : null;
-  })), toc && toc.length && _react2.default.createElement(_ExpansionPanel2.default, { className: classes.toc, defaultExpanded: true }, _react2.default.createElement(_ExpansionPanel.ExpansionPanelSummary, { className: classes.tocSummary, expandIcon: _react2.default.createElement(_ExpandMore2.default, null) }, _react2.default.createElement(_Typography2.default, null, '\u6587\u7AE0\u76EE\u5F55')), _react2.default.createElement(_ExpansionPanel.ExpansionPanelDetails, { className: classes.tocDetails }, _react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: toc } }))), _react2.default.createElement('div', { className: 'markdown-body', dangerouslySetInnerHTML: { __html: post.content } }), _react2.default.createElement('footer', { className: classes.reference }, _react2.default.createElement('strong', null, '\uFF08\u8F6C\u8F7D\u672C\u7AD9\u6587\u7AE0\u8BF7\u6CE8\u660E\u4F5C\u8005\u548C\u51FA\u5904\uFF1A', _react2.default.createElement('a', { href: 'http://ningto.com' }, '\u6CDE\u9014 - ningto.com')))), _react2.default.createElement(_Card.CardActions, null, _react2.default.createElement(_PostStepper2.default, { nextPost: nextPost, prevPost: prevPost })))) : _react2.default.createElement(_Loading2.default, null);
-};
+  function ShowPost() {
+    (0, _classCallCheck3.default)(this, ShowPost);
+
+    return (0, _possibleConstructorReturn3.default)(this, (ShowPost.__proto__ || (0, _getPrototypeOf2.default)(ShowPost)).apply(this, arguments));
+  }
+
+  (0, _createClass3.default)(ShowPost, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var gitment = new _gitment2.default({
+        owner: 'tujiaw',
+        repo: 'ningto',
+        oauth: {
+          client_id: 'db79f2dfa05ac3be7fce',
+          client_secret: 'c54abd8dbb7b24968b7182011b56dee7a5d6d85d'
+          // ...
+          // For more available options, check out the documentation below
+        } });
+      gitment.render('comments');
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var classes = this.props.classes;
+      var _props$postData = this.props.postData,
+          toc = _props$postData.toc,
+          post = _props$postData.post,
+          nextPost = _props$postData.nextPost,
+          prevPost = _props$postData.prevPost;
+
+      return post ? _react2.default.createElement('div', { className: classes.root }, _react2.default.createElement(_Card2.default, { className: classes.card }, _react2.default.createElement(_Card.CardContent, null, _react2.default.createElement(_Typography2.default, { type: 'body1', className: classes.subTitle }, _objectId2.default.toDatetime(post._id), ' \u9605\u8BFB(', post.pv, ')'), _react2.default.createElement(_Typography2.default, { type: 'headline', component: 'h2' }, _react2.default.createElement(_link2.default, { href: '/post?id=' + post._id }, _react2.default.createElement('a', { className: classes.title }, post.title))), _react2.default.createElement('div', { className: classes.chipGroup }, post.tags && post.tags.map(function (tag, index) {
+        return tag.length ? _react2.default.createElement(_Chip2.default, { key: index, className: classes.chip, label: tag }) : null;
+      })), toc && toc.length && _react2.default.createElement(_ExpansionPanel2.default, { className: classes.toc, defaultExpanded: true }, _react2.default.createElement(_ExpansionPanel.ExpansionPanelSummary, { className: classes.tocSummary, expandIcon: _react2.default.createElement(_ExpandMore2.default, null) }, _react2.default.createElement(_Typography2.default, null, '\u6587\u7AE0\u76EE\u5F55')), _react2.default.createElement(_ExpansionPanel.ExpansionPanelDetails, { className: classes.tocDetails }, _react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: toc } }))), _react2.default.createElement('div', { className: 'markdown-body', dangerouslySetInnerHTML: { __html: post.content } }), _react2.default.createElement('footer', { className: classes.reference }, _react2.default.createElement('strong', null, '\uFF08\u8F6C\u8F7D\u672C\u7AD9\u6587\u7AE0\u8BF7\u6CE8\u660E\u4F5C\u8005\u548C\u51FA\u5904\uFF1A', _react2.default.createElement('a', { href: 'http://ningto.com' }, '\u6CDE\u9014 - ningto.com')))), _react2.default.createElement(_Card.CardActions, null, _react2.default.createElement(_PostStepper2.default, { nextPost: nextPost, prevPost: prevPost }))), _react2.default.createElement('div', { id: 'comments', className: classes.comments })) : _react2.default.createElement(_Loading2.default, null);
+    }
+  }]);
+
+  return ShowPost;
+}(_react2.default.Component);
 
 var styles = function styles(theme) {
   var _toc;
@@ -151,6 +204,9 @@ var styles = function styles(theme) {
     },
     sohucsWrap: {
       margin: 10
+    },
+    comments: {
+      padding: 15
     }
   };
 };

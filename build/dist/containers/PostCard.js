@@ -60,8 +60,12 @@ var styles = function styles(theme) {
     root: {
       background: theme.palette.background.paper,
       // borderRadius: 5,
-      width: '100%'
+      width: '100%',
+      '&:hover': {
+        background: theme.palette.background.itemHover
+      }
     },
+
     title: {
       color: theme.palette.text.title,
       textDecoration: 'none',

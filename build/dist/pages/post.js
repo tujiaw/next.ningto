@@ -42,7 +42,7 @@ var _this = undefined;
 
 var Post = function Post(props) {
   console.log('url:' + props.url);
-  return _react2.default.createElement(_MainLayout2.default, { rightSidebarData: props.rightSidebarData }, _react2.default.createElement(_ShowPost2.default, { postData: props.postData }), _react2.default.createElement(_head2.default, null, _react2.default.createElement('link', { rel: 'stylesheet', href: '/static/css/github.css' }), _react2.default.createElement('link', { rel: 'stylesheet', href: '/static/css/github-markdown.min.css' })));
+  return _react2.default.createElement(_MainLayout2.default, { rightSidebarData: props.rightSidebarData }, _react2.default.createElement(_ShowPost2.default, { postData: props.postData }), _react2.default.createElement(_head2.default, null, _react2.default.createElement('link', { rel: 'stylesheet', href: '/static/css/github.css' }), _react2.default.createElement('link', { rel: 'stylesheet', href: '/static/css/github-markdown.min.css' }), _react2.default.createElement('link', { rel: 'stylesheet', href: '/static/css/comments.css' })));
 };
 
 Post.getInitialProps = function () {

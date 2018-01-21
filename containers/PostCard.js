@@ -11,7 +11,6 @@ import Router from 'next/router'
 
 function PostCard(props) {
   const { classes, post } = props;
-
   return (
       <Card className={classes.root}>
         <CardContent className={classes.cardContent}>
@@ -44,7 +43,11 @@ const styles = theme => ({
       background: theme.palette.background.paper,
       // borderRadius: 5,
       width: '100%',
+      '&:hover': {
+        background: theme.palette.background.itemHover,
+      }
     },
+
     title: {
       color: theme.palette.text.title,
       textDecoration: 'none',

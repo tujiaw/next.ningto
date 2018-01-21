@@ -8,6 +8,7 @@ import ExpansionPanel, { ExpansionPanelSummary, ExpansionPanelDetails } from 'ma
 import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
 import compose from 'recompose/compose'
 import Link from 'next/link'
+import Gitment from 'gitment'
 
 import objectId from '../../common/objectId'
 import Loading from '../../components/Loading'
@@ -17,49 +18,67 @@ import config from '../../common/config'
 
 import PostStepper from './PostStepper';
 
-const ShowPost = (props) => {
-  const { classes } = props;
-  const { toc, post, nextPost, prevPost } = props.postData;
-  return post 
-  ? (
-      <div className={classes.root}>
-          <Card className={classes.card}>
-              <CardContent>
-                  <Typography type="body1" className={classes.subTitle}>
-                  { objectId.toDatetime(post._id) } 阅读({ post.pv })
-                  </Typography>
-                  <Typography type="headline" component="h2">
-                  <Link href={`/post?id=${post._id}`}>
-                      <a className={classes.title}>{ post.title }</a>
-                  </Link>
-                  </Typography>
-                  <div className={classes.chipGroup}>
-                  { post.tags && post.tags.map((tag, index) => {
-                      return tag.length ? <Chip key={index} className={classes.chip} label={tag} /> : null
-                  })}
-                  </div>
-                  { toc && toc.length && 
-                    <ExpansionPanel className={classes.toc} defaultExpanded={true}>
-                      <ExpansionPanelSummary className={classes.tocSummary} expandIcon={<ExpandMoreIcon />}>
-                        <Typography>文章目录</Typography>
-                      </ExpansionPanelSummary>
-                      <ExpansionPanelDetails className={classes.tocDetails}>
-                        <div dangerouslySetInnerHTML={{ __html: toc }}></div>
-                      </ExpansionPanelDetails>
-                    </ExpansionPanel>
-                  }
-                  <div className="markdown-body" dangerouslySetInnerHTML={{ __html: post.content }}></div>
-                  <footer className={classes.reference}>
-                      <strong>（转载本站文章请注明作者和出处：<a href="http://ningto.com">泞途 - ningto.com</a></strong>
-                  </footer>
-              </CardContent>
-          <CardActions>
-              <PostStepper nextPost={nextPost} prevPost={prevPost} />
-          </CardActions>
-          </Card>
-      </div>
-  )
-  : <Loading />;
+class ShowPost extends React.Component {
+  componentDidMount() {
+    const gitment = new Gitment({
+      owner: 'tujiaw',
+      repo: 'ningto',
+      oauth: {
+        client_id: 'db79f2dfa05ac3be7fce',
+        client_secret: 'c54abd8dbb7b24968b7182011b56dee7a5d6d85d',
+      },
+      // ...
+      // For more available options, check out the documentation below
+    })
+    gitment.render('comments')
+  }
+
+  render() {
+    const { classes } = this.props;
+    const { toc, post, nextPost, prevPost } = this.props.postData;
+  
+    return post 
+    ? (
+        <div className={classes.root}>
+            <Card className={classes.card}>
+                <CardContent>
+                    <Typography type="body1" className={classes.subTitle}>
+                    { objectId.toDatetime(post._id) } 阅读({ post.pv })
+                    </Typography>
+                    <Typography type="headline" component="h2">
+                    <Link href={`/post?id=${post._id}`}>
+                        <a className={classes.title}>{ post.title }</a>
+                    </Link>
+                    </Typography>
+                    <div className={classes.chipGroup}>
+                    { post.tags && post.tags.map((tag, index) => {
+                        return tag.length ? <Chip key={index} className={classes.chip} label={tag} /> : null
+                    })}
+                    </div>
+                    { toc && toc.length && 
+                      <ExpansionPanel className={classes.toc} defaultExpanded={true}>
+                        <ExpansionPanelSummary className={classes.tocSummary} expandIcon={<ExpandMoreIcon />}>
+                          <Typography>文章目录</Typography>
+                        </ExpansionPanelSummary>
+                        <ExpansionPanelDetails className={classes.tocDetails}>
+                          <div dangerouslySetInnerHTML={{ __html: toc }}></div>
+                        </ExpansionPanelDetails>
+                      </ExpansionPanel>
+                    }
+                    <div className="markdown-body" dangerouslySetInnerHTML={{ __html: post.content }}></div>
+                    <footer className={classes.reference}>
+                        <strong>（转载本站文章请注明作者和出处：<a href="http://ningto.com">泞途 - ningto.com</a></strong>
+                    </footer>
+                </CardContent>
+            <CardActions>
+                <PostStepper nextPost={nextPost} prevPost={prevPost} />
+            </CardActions>
+            </Card>
+            <div id='comments' className={classes.comments}></div>
+        </div>
+    )
+    : <Loading />;
+  }
 }
 
 const styles = theme => ({
@@ -138,6 +157,9 @@ const styles = theme => ({
   },
   sohucsWrap: {
     margin: 10
+  },
+  comments: {
+    padding: 15
   }
 });
 

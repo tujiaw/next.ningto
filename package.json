@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "express": "^4.16.2",
+    "gitment": "0.0.3",
     "isomorphic-unfetch": "^2.0.0",
     "material-ui": "^1.0.0-beta.24",
     "material-ui-icons": "^1.0.0-beta.17",

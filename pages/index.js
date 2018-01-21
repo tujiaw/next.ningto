@@ -17,6 +17,9 @@ class Index extends React.Component {
           title: '#3f51b5',
           titleHover: '#7B68EE',
           secondary: '#817c7c',
+        },
+        background: {
+          itemHover: '#f5f8fa'
         }
       },
     })

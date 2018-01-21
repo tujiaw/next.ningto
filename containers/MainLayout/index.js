@@ -135,7 +135,7 @@ const styles = theme => ({
     zIndex: 1,
     overflow: 'hidden',
     // background: theme.palette.grey[400],
-    backgroundColor: 'rgb(231, 238, 244)',
+    backgroundColor: '#e6ecf0',
   },
   appFrame: {
     display: 'flex',
