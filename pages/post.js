@@ -13,7 +13,6 @@ const Post = (props) => {
         <Head>
           <link rel="stylesheet" href="/static/css/github.css" />
           <link rel="stylesheet" href="/static/css/github-markdown.min.css" />
-          <link rel="stylesheet" href="/static/css/comments.css" />
         </Head>
       </MainLayout>
     )

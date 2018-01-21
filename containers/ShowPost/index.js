@@ -8,7 +8,6 @@ import ExpansionPanel, { ExpansionPanelSummary, ExpansionPanelDetails } from 'ma
 import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
 import compose from 'recompose/compose'
 import Link from 'next/link'
-import Gitment from 'gitment'
 
 import objectId from '../../common/objectId'
 import Loading from '../../components/Loading'
@@ -19,20 +18,6 @@ import config from '../../common/config'
 import PostStepper from './PostStepper';
 
 class ShowPost extends React.Component {
-  componentDidMount() {
-    const gitment = new Gitment({
-      owner: 'tujiaw',
-      repo: 'ningto',
-      oauth: {
-        client_id: 'db79f2dfa05ac3be7fce',
-        client_secret: 'c54abd8dbb7b24968b7182011b56dee7a5d6d85d',
-      },
-      // ...
-      // For more available options, check out the documentation below
-    })
-    gitment.render('comments')
-  }
-
   render() {
     const { classes } = this.props;
     const { toc, post, nextPost, prevPost } = this.props.postData;
@@ -74,7 +59,6 @@ class ShowPost extends React.Component {
                 <PostStepper nextPost={nextPost} prevPost={prevPost} />
             </CardActions>
             </Card>
-            <div id='comments' className={classes.comments}></div>
         </div>
     )
     : <Loading />;
@@ -157,9 +141,6 @@ const styles = theme => ({
   },
   sohucsWrap: {
     margin: 10
-  },
-  comments: {
-    padding: 15
   }
 });
 
