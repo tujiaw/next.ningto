@@ -11,6 +11,7 @@ import Link from 'next/link'
 
 import objectId from '../../common/objectId'
 import Loading from '../../components/Loading'
+import Comments from '../../components/Comments'
 
 import utils from '../../common/utils'
 import config from '../../common/config'
@@ -59,6 +60,7 @@ class ShowPost extends React.Component {
                 <PostStepper nextPost={nextPost} prevPost={prevPost} />
             </CardActions>
             </Card>
+            <Comments />
         </div>
     )
     : <Loading />;

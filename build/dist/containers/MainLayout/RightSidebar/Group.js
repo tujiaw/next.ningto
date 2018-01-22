@@ -48,6 +48,9 @@ var _Card2 = _interopRequireDefault(_Card);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var _jsxFileName = 'c:\\github\\ningto\\containers\\MainLayout\\RightSidebar\\Group.js';
+
+
 var styles = function styles(theme) {
   return {
     root: {
@@ -82,12 +85,37 @@ var Group = function (_React$Component) {
           classes = _props.classes,
           data = _props.data;
 
-      return _react2.default.createElement(_Card2.default, { className: classes.root }, _react2.default.createElement(_Card.CardContent, null, _react2.default.createElement(_List2.default, { dense: true, subheader: _react2.default.createElement(_ListSubheader2.default, { className: classes.subHeader }, data.title) }, data.list && data.list.map(function (post, index) {
+      return _react2.default.createElement(_Card2.default, { className: classes.root, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 29
+        }
+      }, _react2.default.createElement(_Card.CardContent, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 30
+        }
+      }, _react2.default.createElement(_List2.default, { dense: true, subheader: _react2.default.createElement(_ListSubheader2.default, { className: classes.subHeader, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 31
+          }
+        }, data.title), __source: {
+          fileName: _jsxFileName,
+          lineNumber: 31
+        }
+      }, data.list && data.list.map(function (post, index) {
         var title = post.title;
         if (post.subTitle) {
           title += ' (' + post.subTitle + ')';
         }
-        return _react2.default.createElement(_List.ListItem, { key: index, className: classes.listItem, onClick: data.onItemClick.bind(data, index), button: true }, _react2.default.createElement(_List.ListItemText, { primary: title, className: classes.listItemText }));
+        return _react2.default.createElement(_List.ListItem, { key: index, className: classes.listItem, onClick: data.onItemClick.bind(data, index), button: true, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 37
+          }
+        }, _react2.default.createElement(_List.ListItemText, { primary: title, className: classes.listItemText, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 38
+          }
+        }));
       }))));
     }
   }]);
@@ -95,4 +123,9 @@ var Group = function (_React$Component) {
   return Group;
 }(_react2.default.Component);
 
+Group.propTypes = {
+  classes: _propTypes2.default.object.isRequired
+};
+
 exports.default = (0, _styles.withStyles)(styles)(Group);
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbnRhaW5lcnNcXE1haW5MYXlvdXRcXFJpZ2h0U2lkZWJhclxcR3JvdXAuanMiXSwibmFtZXMiOlsiUmVhY3QiLCJQcm9wVHlwZXMiLCJ3aXRoU3R5bGVzIiwiTGlzdFN1YmhlYWRlciIsIkxpc3QiLCJMaXN0SXRlbSIsIkxpc3RJdGVtVGV4dCIsIkNhcmQiLCJDYXJkQ29udGVudCIsInN0eWxlcyIsInJvb3QiLCJtYXJnaW5Ub3AiLCJsaXN0SXRlbSIsInBhZGRpbmciLCJtYXJnaW4iLCJsaXN0SXRlbVRleHQiLCJHcm91cCIsInByb3BzIiwiY2xhc3NlcyIsImRhdGEiLCJzdWJIZWFkZXIiLCJ0aXRsZSIsImxpc3QiLCJtYXAiLCJwb3N0IiwiaW5kZXgiLCJzdWJUaXRsZSIsIm9uSXRlbUNsaWNrIiwiYmluZCIsIkNvbXBvbmVudCIsInByb3BUeXBlcyIsIm9iamVjdCIsImlzUmVxdWlyZWQiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBQUEsQUFBTzs7OztBQUNQLEFBQU87Ozs7QUFDUCxBQUFTOztBQUNULEFBQU87Ozs7QUFDUCxBQUFPLEFBQVEsQUFBVTs7OztBQUN6QixBQUFPLEFBQVE7Ozs7Ozs7OztBQUVmLElBQU0sU0FBUyxTQUFULEFBQVMsY0FBQTs7O0FBR1g7aUJBSHFCLEFBQ2pCLEFBRU8sQUFFYjtBQUpNLEFBQ0o7O2VBR1EsQUFDQyxBQUNUO2NBUHFCLEFBS2IsQUFFQSxBQUVWO0FBSlUsQUFDUjs7ZUFHWSxBQUNILEFBQ1Q7Y0FYVyxBQUFVLEFBU1QsQUFFSjtBQUZJLEFBQ1o7O0FBVnFCLEFBQ3ZCO0FBREY7O0ksQUFnQk07Ozs7Ozs7Ozs7OzZCQUNLO21CQUNtQixLQURuQixBQUN3QjtVQUR4QixBQUNDLGlCQURELEFBQ0M7VUFERCxBQUNVLGNBRFYsQUFDVSxBQUVqQjs7NkJBQ0UsQUFBQyxnQ0FBSyxXQUFXLFFBQWpCLEFBQXlCO29CQUF6QjtzQkFBQSxBQUNFO0FBREY7T0FBQSxrQkFDRSxBQUFDOztvQkFBRDtzQkFBQSxBQUNFO0FBREY7QUFBQSx5QkFDRSxBQUFDLGdDQUFLLE9BQU4sQUFBYSxNQUFNLDJCQUFXLEFBQUMseUNBQWMsV0FBVyxRQUExQixBQUFrQztzQkFBbEM7d0JBQUEsQUFBOEM7QUFBOUM7U0FBQSxPQUE5QixBQUE4QixBQUFtRDtvQkFBakY7c0JBQUEsQUFDRztBQURIO2NBQ0csQUFBSyxhQUFRLEFBQUssS0FBTCxBQUFVLElBQUksVUFBQSxBQUFDLE1BQUQsQUFBTyxPQUFVLEFBQzNDO1lBQUksUUFBUSxLQUFaLEFBQWlCLEFBQ2pCO1lBQUksS0FBSixBQUFTLFVBQVUsQUFDakI7MEJBQWMsS0FBZCxBQUFtQixXQUNwQjtBQUNEOytCQUFPLEFBQUMsZ0NBQVMsS0FBVixBQUFlLE9BQU8sV0FBVyxRQUFqQyxBQUF5QyxVQUFVLFNBQVMsS0FBQSxBQUFLLFlBQUwsQUFBaUIsS0FBakIsQUFBc0IsTUFBbEYsQUFBNEQsQUFBNEIsUUFBUSxRQUFoRztzQkFBQTt3QkFBQSxBQUNMO0FBREs7U0FBQSxrQkFDTCxBQUFDLG9DQUFhLFNBQWQsQUFBd0IsT0FBUSxXQUFXLFFBQTNDLEFBQW1EO3NCQUFuRDt3QkFERixBQUFPLEFBQ0wsQUFFSDtBQUZHOztBQVZaLEFBQ0UsQUFDRSxBQUNFLEFBQ2dCLEFBYXZCLE9BYnVCOzs7OztFQVJOLGdCQUFNLEE7O0FBd0IxQixNQUFBLEFBQU07V0FDSyxvQkFBQSxBQUFVLE9BRHJCLEFBQWtCLEFBQ1UsQUFHNUI7QUFKa0IsQUFDaEI7O2tCQUdhLHdCQUFBLEFBQVcsUUFBMUIsQUFBZSxBQUFtQiIsImZpbGUiOiJHcm91cC5qcyIsInNvdXJjZVJvb3QiOiJjOi9naXRodWIvbmluZ3RvIn0=

@@ -91,7 +91,7 @@ class MainLayout extends React.Component {
           <AppBar className={classes.appBar}>
             <Toolbar>
               <IconButton
-                color="contrast"
+                color="inherit"
                 aria-label="open drawer"
                 onClick={this.toggleDrawer('left', true)}
               >
@@ -101,10 +101,10 @@ class MainLayout extends React.Component {
                 泞途 - ningto.com
               </Typography>
               <AppSearch onRequestSearch={this.handleSearch}/>
-              <IconButton color="contrast" aria-label="主页"onClick={this.onHome}>
+              <IconButton color="inherit" aria-label="主页"onClick={this.onHome}>
                 <HomeIcon />
               </IconButton>
-              <IconButton color="contrast" aria-label="github"onClick={this.onGithub}>
+              <IconButton color="inherit" aria-label="github"onClick={this.onGithub}>
               <Github />
               </IconButton>
             </Toolbar>
