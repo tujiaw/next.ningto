@@ -14,26 +14,10 @@ class Comments extends React.Component {
     const { classes } = this.props
     return (
       <Paper className={classes.root} elevation={4}>
-        <div className={classes.title}>评论</div>
-          <TextField
-            className={classes.name}
-            required
-            id="name"
-            label="名字"
-            value=""
-            onChange={this.handleChange('name')}
-            margin="dense"
-          />
-          <TextField
-            className={classes.email}
-            required
-            id="email"
-            label="Email"
-            value=""
-            onChange={this.handleChange('name')}
-            margin="dense"
-          />
-        
+        <div className={classes.header}>
+          <span>评论框</span>
+          <a className={classes.login} href="http://www.3inns.cn/user/githubLogin" target="_blank">Login</a>
+        </div>
         <TextField
           required
           id="multiline-static"
@@ -61,14 +45,12 @@ const styles = theme => ({
     padding: 20,
     marginTop: 10,
   },
-  name: {
-    width: 200,
-  },
-  email: {
-    width: 200,
-  },
-  nameLayout: {
+  header: {
     display: 'flex',
+    justifyContent: 'space-between'
+  },
+  login: {
+    cursor: 'pointer',
   },
   contentLayout: {
     display: 'flex',

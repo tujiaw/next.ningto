@@ -83,7 +83,7 @@ const styles = theme => ({
   title: {
     color: theme.palette.text.title,
     textDecoration: 'none',
-    fontSize: '1.2em',
+    fontSize: '1.8em',
     '&:hover': {
       color: theme.palette.text.titleHover,
     }

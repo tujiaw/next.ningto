@@ -31,6 +31,12 @@ class MainLayout extends React.Component {
 
   componentDidMount() {
     this.instance.appendChild(utils.createScript(config.BAIDU_SHARE))
+
+      if (window.localStorage) {
+        console.log('3435354545454')
+      } else {
+        console.log('3333333333333333333')
+      }
   }
 
   toggleDrawer = (side, open) => () => {

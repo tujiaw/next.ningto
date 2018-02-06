@@ -59,5 +59,4 @@ Index.getInitialProps = async (context) => {
   return { rightSidebarData: result.rightSidebarData, postsData: result }
 }
 
-
 export default Index

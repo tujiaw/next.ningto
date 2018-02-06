@@ -23,7 +23,7 @@ class Pagination extends React.Component {
               return <Button key={index} className={classes.button} onClick={()=>this.onClick(morePage)}>...</Button>
             } else {
               if (number === page) {
-                return <Button key={index} color='accent' className={classes.button} onClick={()=>this.onClick(number)}>{ number }</Button>
+                return <Button key={index} className={classes.button} onClick={()=>this.onClick(number)}>{ number }</Button>
               } else {
                 return <Button key={index} className={classes.button} onClick={()=>this.onClick(number)}>{ number }</Button>
               }
