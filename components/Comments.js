@@ -16,7 +16,7 @@ class Comments extends React.Component {
       <Paper className={classes.root} elevation={4}>
         <div className={classes.header}>
           <span>评论框</span>
-          <a className={classes.login} href="http://www.3inns.cn/user/githubLogin" target="_blank">Login</a>
+          <a className={classes.login} href="http://www.ningto.com/user/githubLogin" target="_blank">Login</a>
         </div>
         <TextField
           required

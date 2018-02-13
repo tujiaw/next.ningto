@@ -22,7 +22,7 @@ class ProfileCard extends React.Component {
       <Card className={classes.root}>
         <div className={classes.row}>
           <a href="https://github.com/tujiaw">
-            <img className={classes.img} alt="avatar" src="http://3inns.cn/img/myavatar.jpg" />
+            <img className={classes.img} alt="avatar" src="http://ningto.com/img/myavatar.jpg" />
           </a>
           <div className={classes.title}>
             <span className={classes.mainTitle}>ningto.com</span>
