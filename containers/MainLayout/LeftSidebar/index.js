@@ -30,19 +30,19 @@ class LeftSidebar extends React.Component {
 
     return (
       <List className={classes.root} subheader={<ListSubheader>ningto.com</ListSubheader>}>
-        <ListItem button onClick={this.handleClick.bind(this, 'http://3inns.cn')}>
+        <ListItem button onClick={this.handleClick.bind(this, 'http://ningto.com')}>
           <ListItemIcon><Home /></ListItemIcon>
           <ListItemText inset primary="主页" />
         </ListItem>
-        <ListItem button onClick={this.handleClick.bind(this, 'http://3inns.cn/about')}>
+        <ListItem button onClick={this.handleClick.bind(this, 'http://ningto.com/about')}>
           <ListItemIcon><AccountBox /></ListItemIcon>
           <ListItemText inset primary="关于" />
         </ListItem>
-        <ListItem button onClick={this.handleClick.bind(this, 'http://3inns.cn/archives')}>
+        <ListItem button onClick={this.handleClick.bind(this, 'http://ningto.com/archives')}>
           <ListItemIcon><Archive /></ListItemIcon>
           <ListItemText inset primary="归档" />
         </ListItem>
-        <ListItem button onClick={this.handleClick.bind(this, 'http://3inns.cn/search')}>
+        <ListItem button onClick={this.handleClick.bind(this, 'http://ningto.com/search')}>
           <ListItemIcon><Search /></ListItemIcon>
           <ListItemText inset primary="搜索" />
         </ListItem>
@@ -56,13 +56,13 @@ class LeftSidebar extends React.Component {
         </ListItem>
         <Collapse component="li" in={this.state.open} transitionduration="auto" unmountOnExit>
           <List disablePadding>
-            <ListItem button className={classes.nested} onClick={this.handleClick.bind(this, 'http://3inns.cn/mdviewer')}>
+            <ListItem button className={classes.nested} onClick={this.handleClick.bind(this, 'http://ningto.com/mdviewer')}>
               <ListItemText primary="Markdown预览" />
             </ListItem>
-            <ListItem button className={classes.nested} onClick={this.handleClick.bind(this, 'http://3inns.cn/upload.html')}>
+            <ListItem button className={classes.nested} onClick={this.handleClick.bind(this, 'http://ningto.com/upload.html')}>
               <ListItemText  primary="上传图片" />
             </ListItem>
-            <ListItem button className={classes.nested} onClick={this.handleClick.bind(this, 'http://3inns.cn/react-wchathot')}>
+            <ListItem button className={classes.nested} onClick={this.handleClick.bind(this, 'http://ningto.com/react-wchathot')}>
               <ListItemText  primary="微信文章精选" />
             </ListItem>
           </List>

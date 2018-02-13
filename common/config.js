@@ -1,6 +1,6 @@
 const config = {
-    HOST_PREFIX: 'http://3inns.cn',
-    API_PREFIX: 'http://3inns.cn/api',
+    HOST_PREFIX: 'http://ningto.com',
+    API_PREFIX: 'http://ningto.com/api',
 
     // HOST_PREFIX: 'http://localhost:3000',
     // API_PREFIX: 'http://localhost:3000/api',
