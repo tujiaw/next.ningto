@@ -185,6 +185,7 @@ const styles = theme => ({
     minWidth: 260,
     maxWidth: 260,
     marginTop: 20,
+    
   }
 });
 
