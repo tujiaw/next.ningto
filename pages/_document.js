@@ -13,7 +13,7 @@ export default class MyDocument extends Document {
       <html>
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+          <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
           <meta name="keywords" content="泞途 技术文章 编程 C++ Web Qt Node.js JavaScript" />
           <meta name="description" content="泞途 ningto.com" />
           <title>泞途-ningto.com</title>
