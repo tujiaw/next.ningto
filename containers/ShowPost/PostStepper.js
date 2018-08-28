@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
-import MobileStepper from 'material-ui/MobileStepper';
-import Button from 'material-ui/Button';
-import KeyboardArrowLeft from 'material-ui-icons/KeyboardArrowLeft';
-import KeyboardArrowRight from 'material-ui-icons/KeyboardArrowRight';
+import { withStyles } from '@material-ui/core/styles';
+import MobileStepper from '@material-ui/core/MobileStepper';
+import Button from '@material-ui/core/Button';
+import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
+import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import Router from 'next/router'
 
 const styles = theme => ({
@@ -44,13 +44,13 @@ class PostStepper extends React.Component {
           position="static"
           className={classes.mobileStepper}
           nextButton={
-            <Button dense onClick={this.handleNext} disabled={!!!nextPost}>
+            <Button dense="true" onClick={this.handleNext} disabled={!!!nextPost}>
               { nextPost ? nextPost.title : '这是最后一篇了'}
               {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
             </Button>
           }
           backButton={
-            <Button dense onClick={this.handleBack} disabled={!!!prevPost}>
+            <Button dense="true" onClick={this.handleBack} disabled={!!!prevPost}>
               {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
               { prevPost ? prevPost.title : '前面已经没有了'}
             </Button>

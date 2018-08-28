@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
-import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card';
-import Button from 'material-ui/Button';
-import Typography from 'material-ui/Typography';
+import { withStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
 import MainLayout from '../containers/MainLayout'
 import net from '../common/net'
 
@@ -108,8 +110,8 @@ function Program(props) {
             <Typography component="p">{item.desc}</Typography>
           </CardContent>
           <CardActions>
-            <Button dense color="primary" onClick={() => window.open(item.github)}>Github</Button>
-            <Button dense color="primary" onClick={() => window.open(item.righturl)}>{item.rightbtn}</Button>
+            <Button dense={true} color="primary" onClick={() => window.open(item.github)}>Github</Button>
+            <Button dense={true} color="primary" onClick={() => window.open(item.righturl)}>{item.rightbtn}</Button>
           </CardActions>
         </Card>)
     })}

@@ -2,10 +2,10 @@ import React from 'react';
 import compose from 'recompose/compose';
 import pure from 'recompose/pure';
 import PropTypes from 'prop-types';
-import withWidth, { isWidthUp } from 'material-ui/utils/withWidth';
-import SearchIcon from 'material-ui-icons/Search';
-import { fade } from 'material-ui/styles/colorManipulator';
-import { withStyles } from 'material-ui/styles';
+import withWidth, { isWidthUp } from '@material-ui/core/withWidth';
+import SearchIcon from '@material-ui/icons/Search';
+import { fade } from '@material-ui/core/styles/colorManipulator';
+import { withStyles } from '@material-ui/core/styles';
 
 let searchTimer;
 

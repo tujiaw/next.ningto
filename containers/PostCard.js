@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
-import Card, { CardActions, CardContent } from 'material-ui/Card';
-import Button from 'material-ui/Button';
-import Chip from 'material-ui/Chip';
-import Typography from 'material-ui/Typography';
+import { withStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import Button from '@material-ui/core/Button';
+import Chip from '@material-ui/core/Chip';
+import Typography from '@material-ui/core/Typography';
 import objectId from '../common/objectId'
 import Link from 'next/link'
 import Router from 'next/router'
@@ -32,7 +34,7 @@ function PostCard(props) {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button dense onClick={() => { Router.push(`/post?id=${post._id}`) }}>阅读全文 »</Button>
+          <Button dense="true" onClick={() => { Router.push(`/post?id=${post._id}`) }}>阅读全文 »</Button>
         </CardActions>
       </Card>
   );

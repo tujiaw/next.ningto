@@ -1,7 +1,7 @@
 import React from 'react';
-import { withStyles } from 'material-ui/styles';
-import { Button, IconButton } from 'material-ui';
-import { KeyboardArrowLeft, KeyboardArrowRight } from 'material-ui-icons'
+import { withStyles } from '@material-ui/core/styles';
+import { Button, IconButton } from '@material-ui/core';
+import { KeyboardArrowLeft, KeyboardArrowRight } from '@material-ui/icons'
 
 class Pagination extends React.Component {
     onClick = (page) => {

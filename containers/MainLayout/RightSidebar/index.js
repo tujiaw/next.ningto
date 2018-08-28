@@ -1,8 +1,8 @@
 
 import React from 'react';
-import { withStyles } from 'material-ui/styles';
+import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
-import { Grid } from 'material-ui'
+import { Grid } from '@material-ui/core'
 import Router from 'next/router'
 import ProfileCard from './ProfileCard'
 import Group from './Group'

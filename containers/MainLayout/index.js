@@ -1,18 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { withStyles } from 'material-ui/styles'
+import { withStyles } from '@material-ui/core/styles'
 import { AppBar, Toolbar, Typography, 
   IconButton, Grid, Hidden, Drawer
-} from 'material-ui'
-import MenuIcon from 'material-ui-icons/Menu'
-import HomeIcon from 'material-ui-icons/Home'
+} from '@material-ui/core'
+import MenuIcon from '@material-ui/icons/Menu'
+import HomeIcon from '@material-ui/icons/Home'
 import compose from 'recompose/compose';
-import withWidth from 'material-ui/utils/withWidth';
+import withWidth from '@material-ui/core/withWidth';
 import Router from 'next/router'
 
 import AppSearch from '../../components/AppSearch'
 import Github from '../../components/Github'
-import Pagination from '../../components/Pagination'
 import NotifyBar from '../../components/NotifyBar'
 import Back2top from '../../components/Back2top'
 import Footer from '../../components/Footer'

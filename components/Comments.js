@@ -1,9 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
-import TextField from 'material-ui/TextField';
-import Paper from 'material-ui/Paper';
-import Button from 'material-ui/Button';
+import { withStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+import Paper from '@material-ui/core/Paper';
+import Button from '@material-ui/core/Button';
 
 class Comments extends React.Component {
   handleChange = (name) => {
@@ -31,7 +30,7 @@ class Comments extends React.Component {
           helperText="支持Markdown"
         />
         <div className={classes.contentLayout}>
-          <Button raised color="primary" className={classes.button}>评论</Button>
+          <Button raised="true" color="primary" className={classes.button}>评论</Button>
         </div>
       </Paper>
     )

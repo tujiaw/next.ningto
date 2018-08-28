@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import MainLayout from '../containers/MainLayout'
 import ShowPost from '../containers/ShowPost'
 import net from '../common/net'

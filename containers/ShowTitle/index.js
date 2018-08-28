@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import compose from 'recompose/compose'
-import { withStyles } from 'material-ui/styles';
-import ListSubheader from 'material-ui/List/ListSubheader';
-import List, { ListItem, ListItemText } from 'material-ui/List';
-import { Divider } from 'material-ui'
+import { withStyles } from '@material-ui/core/styles';
+import ListSubheader from '@material-ui/core/ListSubheader';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem'
+import ListItemText from '@material-ui/core/ListItemText'
+import { Divider } from '@material-ui/core'
 import Router from 'next/router'
 
 import Loading from '../../components/Loading'

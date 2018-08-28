@@ -1,6 +1,7 @@
 import React from 'react'
-import { withStyles } from 'material-ui/styles'
-import List, { ListItem } from 'material-ui/List'
+import { withStyles } from '@material-ui/core/styles'
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
 
 import Loading from '../components/Loading'
 import PostCard from './PostCard'

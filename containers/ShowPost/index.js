@@ -1,20 +1,21 @@
 import React from 'react';
-import { withStyles } from 'material-ui/styles';
+import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
-import Card, { CardActions, CardContent } from 'material-ui/Card';
-import Chip from 'material-ui/Chip';
-import Typography from 'material-ui/Typography';
-import ExpansionPanel, { ExpansionPanelSummary, ExpansionPanelDetails } from 'material-ui/ExpansionPanel';
-import ExpandMoreIcon from 'material-ui-icons/ExpandMore';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import Chip from '@material-ui/core/Chip';
+import Typography from '@material-ui/core/Typography';
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import compose from 'recompose/compose'
 import Link from 'next/link'
 
 import objectId from '../../common/objectId'
 import Loading from '../../components/Loading'
 import Comments from '../../components/Comments'
-
-import utils from '../../common/utils'
-import config from '../../common/config'
 
 import PostStepper from './PostStepper';
 

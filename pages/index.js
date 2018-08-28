@@ -1,6 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import MainLayout from '../containers/MainLayout'
 import PostCardList from '../containers/PostCardList'
 import Pagination from '../components/Pagination'

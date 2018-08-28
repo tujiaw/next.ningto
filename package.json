@@ -4,16 +4,16 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "@material-ui/core": "^3.0.0",
+    "@material-ui/icons": "^3.0.0",
     "express": "^4.16.3",
     "isomorphic-unfetch": "^2.0.0",
-    "material-ui": "^1.0.0-beta.40",
-    "material-ui-icons": "^1.0.0-beta.36",
     "moment": "^2.22.0",
-    "next": "^5.1.0",
-    "react": "^16.3.0",
-    "react-dom": "^16.3.0",
-    "recompose": "^0.26.0",
-    "styled-jsx": "^2.2.6"
+    "next": "^6.1.1",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "recompose": "^0.28.2",
+    "styled-jsx": "^3.0.2"
   },
   "devDependencies": {},
   "scripts": {
