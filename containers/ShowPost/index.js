@@ -61,7 +61,7 @@ class ShowPost extends React.Component {
                 <PostStepper nextPost={nextPost} prevPost={prevPost} />
             </CardActions>
             </Card>
-            <Comments />
+            <Comments id={post._id} />
         </div>
     )
     : <Loading />;

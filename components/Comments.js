@@ -1,12 +1,36 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import Paper from '@material-ui/core/Paper';
-import Button from '@material-ui/core/Button';
+import {TextField, Paper, Button, Checkbox, FormControlLabel} from '@material-ui/core';
+import net from '../common/net';
 
 class Comments extends React.Component {
-  handleChange = (name) => {
+  state = {
+    name: '',
+    check: '',
+    comments: '',
+    rememberMe: false,
+  }
 
+  handleSend = () => {
+    if (this.state.check !== '九') {
+      alert('请验证你是人类');
+      return;
+    }
+
+    if (this.state.name.length === 0) {
+      alert('名称不合法');
+      return;
+    }
+    if (this.state.comments.length === 0) {
+      alert('评论内容不合法');
+      return;
+    }
+
+    net.postComments({
+      id: this.props.id,
+      name: this.state.name,
+      comments: this.state.comments
+    });
   }
 
   render() {
@@ -15,8 +39,22 @@ class Comments extends React.Component {
       <Paper className={classes.root} elevation={4}>
         <div className={classes.header}>
           <span>评论框</span>
-          <a className={classes.login} href="http://www.ningto.com/user/githubLogin" target="_blank">Login</a>
         </div>
+        <TextField
+          required
+          id="check"
+          label="验证"
+          margin='dense'
+          onChange={(event) => this.setState({check: event.target.value })}
+          helperText="为了验证您是人类，请将八加一的结果（阿拉伯数字九）填写在上面"
+        />
+        <TextField
+          required
+          id="name"
+          label="名称"
+          margin='dense'
+          onChange={(event) => this.setState({name: event.target.value })}
+        />
         <TextField
           required
           id="multiline-static"
@@ -25,12 +63,20 @@ class Comments extends React.Component {
           rows="3"
           defaultValue=""
           placeholder="Leave a comment"
-          className={classes.textField}
           margin="dense"
           helperText="支持Markdown"
+          onChange={(event) => this.setState({comments: event.target.value })}
         />
         <div className={classes.contentLayout}>
-          <Button raised="true" color="primary" className={classes.button}>评论</Button>
+          <FormControlLabel
+            control={
+              <Checkbox checked={this.state.rememberMe} 
+                onChange={(event) => { this.setState({rememberMe: event.target.checked })}} 
+              />
+            }
+            label="记住我"
+          />
+          <Button raised="true" color="primary" className={classes.button} onClick={this.handleSend}>评论</Button>
         </div>
       </Paper>
     )
@@ -48,13 +94,10 @@ const styles = theme => ({
     display: 'flex',
     justifyContent: 'space-between'
   },
-  login: {
-    cursor: 'pointer',
-  },
   contentLayout: {
     display: 'flex',
     justifyContent: 'flex-end',
-  }
+  },
 });
 
 export default withStyles(styles)(Comments);

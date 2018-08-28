@@ -17,6 +17,22 @@ function getData(url) {
   })
 }
 
+function postData(url, data) {
+  return new Promise((resolve, reject) => {
+    fetch(url, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      body: JSON.stringify(data)
+    }).then((res) => {
+      console.log(res)
+    })
+  })
+}
+
 const net = {
   getUrl: (url) =>{
     return getData(config.API_PREFIX + url);
@@ -36,6 +52,9 @@ const net = {
   },
   getSearch: (keyword) => {
     return getData(config.API_PREFIX + '/search?keyword=' + keyword);
+  },
+  postComments: (data) => {
+    postData(config.API_PREFIX + '/comments', data);
   }
 }
 

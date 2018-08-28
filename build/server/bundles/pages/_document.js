@@ -67,38 +67,24 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 36);
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 0:
-/***/ (function(module, exports) {
-
-module.exports = require("react");
-
-/***/ }),
-
-/***/ 36:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(37);
-
-
-/***/ }),
-
-/***/ 37:
+/***/ "./pages/_document.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MyDocument; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_next_document__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_next_document__ = __webpack_require__("next/document");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_next_document___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_next_document__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_styled_jsx_server__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_styled_jsx_server__ = __webpack_require__("styled-jsx/server");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_styled_jsx_server___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_styled_jsx_server__);
+var _jsxFileName = "F:\\github\\next.ningto\\pages\\_document.js";
 
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -132,25 +118,79 @@ function (_Document) {
   _createClass(MyDocument, [{
     key: "render",
     value: function render() {
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("html", null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_next_document__["Head"], null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("meta", {
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("html", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 13
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_next_document__["Head"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 14
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("meta", {
         name: "viewport",
-        content: "width=device-width, initial-scale=1.0"
+        content: "width=device-width, initial-scale=1.0",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 15
+        }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("meta", {
         httpEquiv: "X-UA-Compatible",
-        content: "ie=edge"
+        content: "ie=edge",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 16
+        }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("meta", {
         name: "keywords",
-        content: "\u6CDE\u9014 \u6280\u672F\u6587\u7AE0 \u7F16\u7A0B C++ Web Qt Node.js JavaScript"
+        content: "\u6CDE\u9014 \u6280\u672F\u6587\u7AE0 \u7F16\u7A0B C++ Web Qt Node.js JavaScript",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 17
+        }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("meta", {
         name: "description",
-        content: "\u6CDE\u9014 ningto.com"
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("title", null, "\u6CDE\u9014-ningto.com"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("link", {
+        content: "\u6CDE\u9014 ningto.com",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 18
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("title", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 19
+        }
+      }, "\u6CDE\u9014-ningto.com"), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("link", {
         rel: "shortcut icon",
         type: "image/ico",
-        href: "/static/favicon.ico"
-      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("style", null, "body { margin: 0;}")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("body", {
-        className: "custom_class"
-      }, this.props.customValue, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_next_document__["Main"], null), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_next_document__["NextScript"], null)));
+        href: "/static/favicon.ico",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 20
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("style", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 21
+        }
+      }, "body { margin: 0;}")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("body", {
+        className: "custom_class",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 23
+        }
+      }, this.props.customValue, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_next_document__["Main"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 25
+        }
+      }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_next_document__["NextScript"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 26
+        }
+      })));
     }
   }], [{
     key: "getInitialProps",
@@ -181,14 +221,29 @@ function (_Document) {
 
 /***/ }),
 
-/***/ 38:
+/***/ 0:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__("./pages/_document.js");
+
+
+/***/ }),
+
+/***/ "next/document":
 /***/ (function(module, exports) {
 
 module.exports = require("next/document");
 
 /***/ }),
 
-/***/ 39:
+/***/ "react":
+/***/ (function(module, exports) {
+
+module.exports = require("react");
+
+/***/ }),
+
+/***/ "styled-jsx/server":
 /***/ (function(module, exports) {
 
 module.exports = require("styled-jsx/server");
@@ -196,3 +251,4 @@ module.exports = require("styled-jsx/server");
 /***/ })
 
 /******/ });
+//# sourceMappingURL=_document.js.map
