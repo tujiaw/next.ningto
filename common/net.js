@@ -53,8 +53,8 @@ const net = {
   getSearch: (keyword) => {
     return getData(config.API_PREFIX + '/search?keyword=' + keyword);
   },
-  postComments: (data) => {
-    postData(config.API_PREFIX + '/comments', data);
+  addComments: (data) => {
+    postData(config.API_PREFIX + '/comments/add', data);
   }
 }
 

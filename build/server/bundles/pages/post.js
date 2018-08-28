@@ -151,8 +151,8 @@ var net = {
   getSearch: function getSearch(keyword) {
     return getData(__WEBPACK_IMPORTED_MODULE_0__config__["a" /* default */].API_PREFIX + '/search?keyword=' + keyword);
   },
-  postComments: function postComments(data) {
-    postData(__WEBPACK_IMPORTED_MODULE_0__config__["a" /* default */].API_PREFIX + '/comments', data);
+  addComments: function addComments(data) {
+    postData(__WEBPACK_IMPORTED_MODULE_0__config__["a" /* default */].API_PREFIX + '/comments/add', data);
   }
 };
 /* harmony default export */ __webpack_exports__["a"] = (net);
@@ -707,7 +707,7 @@ function (_React$Component) {
           return;
         }
 
-        __WEBPACK_IMPORTED_MODULE_3__common_net__["a" /* default */].postComments({
+        __WEBPACK_IMPORTED_MODULE_3__common_net__["a" /* default */].addComments({
           id: _this.props.id,
           name: _this.state.name,
           comments: _this.state.comments

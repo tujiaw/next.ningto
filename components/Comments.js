@@ -26,7 +26,7 @@ class Comments extends React.Component {
       return;
     }
 
-    net.postComments({
+    net.addComments({
       id: this.props.id,
       name: this.state.name,
       comments: this.state.comments
