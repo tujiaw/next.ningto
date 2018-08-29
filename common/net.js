@@ -27,6 +27,10 @@ function postData(url, data) {
         'Accept': 'application/json',
       },
       body: JSON.stringify(data)
+    }).then((res) => {
+      resolve(res)
+    }).catch((error) => {
+      reject(error)
     })
   })
 }

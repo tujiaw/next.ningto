@@ -67,7 +67,7 @@ module.exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -125,6 +125,10 @@ function postData(url, data) {
         'Accept': 'application/json'
       },
       body: JSON.stringify(data)
+    }).then(function (res) {
+      resolve(res);
+    }).catch(function (error) {
+      reject(error);
     });
   });
 }
@@ -331,7 +335,7 @@ var utils = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__material_ui_core_styles_colorManipulator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__material_ui_core_styles_colorManipulator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__material_ui_core_styles__ = __webpack_require__("@material-ui/core/styles");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__material_ui_core_styles___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__material_ui_core_styles__);
-var _jsxFileName = "F:\\github\\next.ningto\\components\\AppSearch.js";
+var _jsxFileName = "E:\\github\\next.ningto\\components\\AppSearch.js";
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
 
@@ -510,7 +514,7 @@ AppSearch.propTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__common_utils__ = __webpack_require__("./common/utils.js");
-var _jsxFileName = "F:\\github\\next.ningto\\components\\Back2top.js";
+var _jsxFileName = "E:\\github\\next.ningto\\components\\Back2top.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -640,8 +644,10 @@ var Styles = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__material_ui_core_styles___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__material_ui_core_styles__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__material_ui_core__ = __webpack_require__("@material-ui/core");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__material_ui_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__material_ui_core__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__common_net__ = __webpack_require__("./common/net.js");
-var _jsxFileName = "F:\\github\\next.ningto\\components\\Comments.js";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__material_ui_core_Divider__ = __webpack_require__("@material-ui/core/Divider");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__material_ui_core_Divider___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__material_ui_core_Divider__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__common_net__ = __webpack_require__("./common/net.js");
+var _jsxFileName = "E:\\github\\next.ningto\\components\\Comments.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -656,6 +662,7 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
 
 
 
@@ -699,7 +706,7 @@ function (_React$Component) {
           return;
         }
 
-        if (_this.state.name.length < 3 || _this.state.name.length > 20) {
+        if (_this.state.name.length < 2 || _this.state.name.length > 20) {
           alert('名称不合法');
           return;
         }
@@ -709,20 +716,18 @@ function (_React$Component) {
           return;
         }
 
-        __WEBPACK_IMPORTED_MODULE_3__common_net__["a" /* default */].addComments({
+        __WEBPACK_IMPORTED_MODULE_4__common_net__["a" /* default */].addComments({
           postId: _this.props.id,
           name: _this.state.name,
           content: _this.state.content
-        }).then(function (result) {
-          if (result.length > 0) {
-            __WEBPACK_IMPORTED_MODULE_3__common_net__["a" /* default */].getComments(_this.props.id).then(function (json) {
-              if (json) {
-                _this.setState({
-                  comments: json
-                });
-              }
-            });
-          }
+        }).then(function () {
+          __WEBPACK_IMPORTED_MODULE_4__common_net__["a" /* default */].getComments(_this.props.id).then(function (json) {
+            if (json) {
+              _this.setState({
+                comments: json
+              });
+            }
+          });
         });
 
         _this.setState({
@@ -730,6 +735,54 @@ function (_React$Component) {
           name: '',
           content: ''
         });
+      }
+    }), Object.defineProperty(_assertThisInitialized(_this), "renderOneComment", {
+      configurable: true,
+      enumerable: true,
+      writable: true,
+      value: function value(comment, index) {
+        var classes = _this.props.classes;
+        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+          key: index,
+          className: classes.oneComment,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 63
+          }
+        }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 64
+          }
+        }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 65
+          }
+        }, comment.content)), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+          className: classes.oneCommentFooter,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 67
+          }
+        }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
+          className: classes.name,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 68
+          }
+        }, '评论者:' + comment.name), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
+          className: classes.date,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 69
+          }
+        }, comment.date || new Date().toDateString())), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__material_ui_core_Divider___default.a, {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 71
+          }
+        }));
       }
     }), _temp));
   }
@@ -740,7 +793,7 @@ function (_React$Component) {
       var _this2 = this;
 
       if (this.props.id) {
-        __WEBPACK_IMPORTED_MODULE_3__common_net__["a" /* default */].getComments(this.props.id).then(function (json) {
+        __WEBPACK_IMPORTED_MODULE_4__common_net__["a" /* default */].getComments(this.props.id).then(function (json) {
           if (json) {
             _this2.setState({
               comments: json
@@ -755,23 +808,47 @@ function (_React$Component) {
       var _this3 = this;
 
       var classes = this.props.classes;
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__material_ui_core__["Paper"], {
-        className: classes.root,
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 79
+        }
+      }, this.state.comments.length ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__material_ui_core__["Paper"], {
+        className: classes.paper,
         elevation: 4,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 64
+          lineNumber: 81
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-        className: classes.header,
+        className: classes.paperHeader,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 65
+          lineNumber: 82
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 66
+          lineNumber: 83
+        }
+      }, "\u8BC4\u8BBA\u5185\u5BB9")), this.state.comments.map(function (comment, index) {
+        return _this3.renderOneComment(comment, index);
+      })) : null, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__material_ui_core__["Paper"], {
+        className: classes.paper,
+        elevation: 4,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 91
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 92
+        }
+      }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 93
         }
       }, "\u8BC4\u8BBA\u6846")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__material_ui_core__["TextField"], {
         required: true,
@@ -787,7 +864,7 @@ function (_React$Component) {
         helperText: "\u4E3A\u4E86\u9A8C\u8BC1\u60A8\u662F\u4EBA\u7C7B\uFF0C\u8BF7\u5C06\u516B\u52A0\u4E00\u7684\u7ED3\u679C\uFF08\u963F\u62C9\u4F2F\u6570\u5B57\u4E5D\uFF09\u586B\u5199\u5728\u4E0A\u9762",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 68
+          lineNumber: 95
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__material_ui_core__["TextField"], {
         required: true,
@@ -802,7 +879,7 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 77
+          lineNumber: 104
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__material_ui_core__["TextField"], {
         required: true,
@@ -821,13 +898,13 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 85
+          lineNumber: 112
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: classes.contentLayout,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 97
+          lineNumber: 124
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__material_ui_core__["FormControlLabel"], {
         control: __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__material_ui_core__["Checkbox"], {
@@ -839,13 +916,13 @@ function (_React$Component) {
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 100
+            lineNumber: 127
           }
         }),
         label: "\u8BB0\u4F4F\u6211",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 98
+          lineNumber: 125
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__material_ui_core__["Button"], {
         raised: "true",
@@ -854,9 +931,9 @@ function (_React$Component) {
         onClick: this.handleSend,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 106
+          lineNumber: 133
         }
-      }, "\u8BC4\u8BBA")));
+      }, "\u8BC4\u8BBA"))));
     }
   }]);
 
@@ -865,19 +942,39 @@ function (_React$Component) {
 
 var styles = function styles(theme) {
   return {
-    root: {
+    paper: {
       display: 'flex',
       flexDirection: 'column',
       padding: 20,
       marginTop: 10
     },
-    header: {
-      display: 'flex',
-      justifyContent: 'space-between'
+    paperHeader: {
+      marginBottom: '20px'
     },
     contentLayout: {
       display: 'flex',
       justifyContent: 'flex-end'
+    },
+    oneComment: {
+      display: 'flex',
+      flexDirection: 'column',
+      marginTop: '15px',
+      marginBottom: '15px'
+    },
+    name: {
+      marginRight: '20px',
+      fontSize: '13px',
+      color: '#009a61'
+    },
+    date: {
+      fontSize: '12px',
+      color: '#999'
+    },
+    oneCommentFooter: {
+      display: 'flex',
+      justifyContent: 'flex-end',
+      height: '50px',
+      lineHeight: '50px'
     }
   };
 };
@@ -892,7 +989,7 @@ var styles = function styles(theme) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-var _jsxFileName = "F:\\github\\next.ningto\\components\\Footer.js";
+var _jsxFileName = "E:\\github\\next.ningto\\components\\Footer.js";
 
 
 var Footer = function Footer() {
@@ -930,7 +1027,7 @@ var Styles = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__material_ui_core_SvgIcon__ = __webpack_require__("@material-ui/core/SvgIcon");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__material_ui_core_SvgIcon___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__material_ui_core_SvgIcon__);
-var _jsxFileName = "F:\\github\\next.ningto\\components\\Github.js";
+var _jsxFileName = "E:\\github\\next.ningto\\components\\Github.js";
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
@@ -964,7 +1061,7 @@ GitHub.muiName = 'SvgIcon';
 /* harmony export (immutable) */ __webpack_exports__["a"] = Loading;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__("react");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-var _jsxFileName = "F:\\github\\next.ningto\\components\\Loading.js";
+var _jsxFileName = "E:\\github\\next.ningto\\components\\Loading.js";
 
 function Loading() {
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("p", {
@@ -993,7 +1090,7 @@ var Styles = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__material_ui_core_Snackbar__ = __webpack_require__("@material-ui/core/Snackbar");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__material_ui_core_Snackbar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__material_ui_core_Snackbar__);
-var _jsxFileName = "F:\\github\\next.ningto\\components\\NotifyBar.js";
+var _jsxFileName = "E:\\github\\next.ningto\\components\\NotifyBar.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -1092,7 +1189,7 @@ function (_React$Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__material_ui_icons___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__material_ui_icons__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_next_router__ = __webpack_require__("next/router");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_next_router___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_next_router__);
-var _jsxFileName = "F:\\github\\next.ningto\\containers\\MainLayout\\LeftSidebar\\index.js";
+var _jsxFileName = "E:\\github\\next.ningto\\containers\\MainLayout\\LeftSidebar\\index.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -1423,7 +1520,7 @@ LeftSidebar.propTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__material_ui_core_Card___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__material_ui_core_Card__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__material_ui_core_CardContent__ = __webpack_require__("@material-ui/core/CardContent");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__material_ui_core_CardContent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__material_ui_core_CardContent__);
-var _jsxFileName = "F:\\github\\next.ningto\\containers\\MainLayout\\RightSidebar\\Group.js";
+var _jsxFileName = "E:\\github\\next.ningto\\containers\\MainLayout\\RightSidebar\\Group.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -1557,7 +1654,7 @@ Group.propTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__material_ui_core_styles___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__material_ui_core_styles__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__material_ui_core_Card__ = __webpack_require__("@material-ui/core/Card");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__material_ui_core_Card___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__material_ui_core_Card__);
-var _jsxFileName = "F:\\github\\next.ningto\\containers\\MainLayout\\RightSidebar\\ProfileCard.js";
+var _jsxFileName = "E:\\github\\next.ningto\\containers\\MainLayout\\RightSidebar\\ProfileCard.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -1772,7 +1869,7 @@ ProfileCard.propTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ProfileCard__ = __webpack_require__("./containers/MainLayout/RightSidebar/ProfileCard.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Group__ = __webpack_require__("./containers/MainLayout/RightSidebar/Group.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__common_utils__ = __webpack_require__("./common/utils.js");
-var _jsxFileName = "F:\\github\\next.ningto\\containers\\MainLayout\\RightSidebar\\index.js";
+var _jsxFileName = "E:\\github\\next.ningto\\containers\\MainLayout\\RightSidebar\\index.js";
 
 
 
@@ -1935,7 +2032,7 @@ RightSideBar.propTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__common_config__ = __webpack_require__("./common/config.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__LeftSidebar__ = __webpack_require__("./containers/MainLayout/LeftSidebar/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__RightSidebar__ = __webpack_require__("./containers/MainLayout/RightSidebar/index.js");
-var _jsxFileName = "F:\\github\\next.ningto\\containers\\MainLayout\\index.js";
+var _jsxFileName = "E:\\github\\next.ningto\\containers\\MainLayout\\index.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -2332,7 +2429,7 @@ MainLayout.propTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__material_ui_icons_KeyboardArrowRight___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__material_ui_icons_KeyboardArrowRight__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_next_router__ = __webpack_require__("next/router");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_next_router___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_next_router__);
-var _jsxFileName = "F:\\github\\next.ningto\\containers\\ShowPost\\PostStepper.js";
+var _jsxFileName = "E:\\github\\next.ningto\\containers\\ShowPost\\PostStepper.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -2535,7 +2632,7 @@ PostStepper.propTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_Loading__ = __webpack_require__("./components/Loading.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_Comments__ = __webpack_require__("./components/Comments.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__PostStepper__ = __webpack_require__("./containers/ShowPost/PostStepper.js");
-var _jsxFileName = "F:\\github\\next.ningto\\containers\\ShowPost\\index.js";
+var _jsxFileName = "E:\\github\\next.ningto\\containers\\ShowPost\\index.js";
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -2845,7 +2942,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_next_head__ = __webpack_require__("next/head");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_next_head___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_next_head__);
 
-var _jsxFileName = "F:\\github\\next.ningto\\pages\\post.js";
+var _jsxFileName = "E:\\github\\next.ningto\\pages\\post.js";
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } } function _next(value) { step("next", value); } function _throw(err) { step("throw", err); } _next(); }); }; }
 
@@ -2929,7 +3026,7 @@ function () {
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__("./pages/post.js");
@@ -2990,6 +3087,13 @@ module.exports = require("@material-ui/core/Chip");
 /***/ (function(module, exports) {
 
 module.exports = require("@material-ui/core/Collapse");
+
+/***/ }),
+
+/***/ "@material-ui/core/Divider":
+/***/ (function(module, exports) {
+
+module.exports = require("@material-ui/core/Divider");
 
 /***/ }),
 

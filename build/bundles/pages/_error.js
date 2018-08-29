@@ -1,7 +1,7 @@
 module.exports =
 __NEXT_REGISTER_PAGE('/_error', function() {
           var comp =
-      webpackJsonp([2],{
+      webpackJsonp([3],{
 
 /***/ "./node_modules/http-status/lib/index.js":
 /***/ (function(module, exports) {
@@ -139,22 +139,22 @@ module.exports = {
 "use strict";
 
 
-var _interopRequireDefault = __webpack_require__("./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+var _interopRequireDefault = __webpack_require__("./node_modules/next/node_modules/@babel/runtime/helpers/interopRequireDefault.js");
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
 
-var _getPrototypeOf = _interopRequireDefault(__webpack_require__("./node_modules/@babel/runtime/core-js/object/get-prototype-of.js"));
+var _getPrototypeOf = _interopRequireDefault(__webpack_require__("./node_modules/next/node_modules/@babel/runtime/core-js/object/get-prototype-of.js"));
 
-var _classCallCheck2 = _interopRequireDefault(__webpack_require__("./node_modules/@babel/runtime/helpers/classCallCheck.js"));
+var _classCallCheck2 = _interopRequireDefault(__webpack_require__("./node_modules/next/node_modules/@babel/runtime/helpers/classCallCheck.js"));
 
-var _createClass2 = _interopRequireDefault(__webpack_require__("./node_modules/@babel/runtime/helpers/createClass.js"));
+var _createClass2 = _interopRequireDefault(__webpack_require__("./node_modules/next/node_modules/@babel/runtime/helpers/createClass.js"));
 
-var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__("./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js"));
+var _possibleConstructorReturn2 = _interopRequireDefault(__webpack_require__("./node_modules/next/node_modules/@babel/runtime/helpers/possibleConstructorReturn.js"));
 
-var _inherits2 = _interopRequireDefault(__webpack_require__("./node_modules/@babel/runtime/helpers/inherits.js"));
+var _inherits2 = _interopRequireDefault(__webpack_require__("./node_modules/next/node_modules/@babel/runtime/helpers/inherits.js"));
 
 var _react = _interopRequireDefault(__webpack_require__("./node_modules/react/index.js"));
 
