@@ -27,8 +27,6 @@ function postData(url, data) {
         'Accept': 'application/json',
       },
       body: JSON.stringify(data)
-    }).then((res) => {
-      console.log(res)
     })
   })
 }
@@ -54,7 +52,10 @@ const net = {
     return getData(config.API_PREFIX + '/search?keyword=' + keyword);
   },
   addComments: (data) => {
-    postData(config.API_PREFIX + '/comments/add', data);
+    return postData(config.API_PREFIX + '/comments/add', data);
+  },
+  getComments: (postId) => {
+    return getData(config.API_PREFIX + '/comments/' + postId);
   }
 }
 

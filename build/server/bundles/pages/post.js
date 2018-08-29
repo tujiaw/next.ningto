@@ -125,8 +125,6 @@ function postData(url, data) {
         'Accept': 'application/json'
       },
       body: JSON.stringify(data)
-    }).then(function (res) {
-      console.log(res);
     });
   });
 }
@@ -152,7 +150,10 @@ var net = {
     return getData(__WEBPACK_IMPORTED_MODULE_0__config__["a" /* default */].API_PREFIX + '/search?keyword=' + keyword);
   },
   addComments: function addComments(data) {
-    postData(__WEBPACK_IMPORTED_MODULE_0__config__["a" /* default */].API_PREFIX + '/comments/add', data);
+    return postData(__WEBPACK_IMPORTED_MODULE_0__config__["a" /* default */].API_PREFIX + '/comments/add', data);
+  },
+  getComments: function getComments(postId) {
+    return getData(__WEBPACK_IMPORTED_MODULE_0__config__["a" /* default */].API_PREFIX + '/comments/' + postId);
   }
 };
 /* harmony default export */ __webpack_exports__["a"] = (net);
@@ -682,9 +683,10 @@ function (_React$Component) {
       enumerable: true,
       writable: true,
       value: {
+        comments: [],
         name: '',
         check: '',
-        comments: '',
+        content: '',
         rememberMe: false
       }
     }), Object.defineProperty(_assertThisInitialized(_this), "handleSend", {
@@ -697,29 +699,60 @@ function (_React$Component) {
           return;
         }
 
-        if (_this.state.name.length === 0) {
+        if (_this.state.name.length < 3 || _this.state.name.length > 20) {
           alert('名称不合法');
           return;
         }
 
-        if (_this.state.comments.length === 0) {
+        if (_this.state.content.length < 3 || _this.state.content.length > 1024 * 3) {
           alert('评论内容不合法');
           return;
         }
 
         __WEBPACK_IMPORTED_MODULE_3__common_net__["a" /* default */].addComments({
-          id: _this.props.id,
+          postId: _this.props.id,
           name: _this.state.name,
-          comments: _this.state.comments
+          content: _this.state.content
+        }).then(function (result) {
+          if (result.length > 0) {
+            __WEBPACK_IMPORTED_MODULE_3__common_net__["a" /* default */].getComments(_this.props.id).then(function (json) {
+              if (json) {
+                _this.setState({
+                  comments: json
+                });
+              }
+            });
+          }
+        });
+
+        _this.setState({
+          check: '',
+          name: '',
+          content: ''
         });
       }
     }), _temp));
   }
 
   _createClass(Comments, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      if (this.props.id) {
+        __WEBPACK_IMPORTED_MODULE_3__common_net__["a" /* default */].getComments(this.props.id).then(function (json) {
+          if (json) {
+            _this2.setState({
+              comments: json
+            });
+          }
+        });
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       var classes = this.props.classes;
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__material_ui_core__["Paper"], {
@@ -727,47 +760,49 @@ function (_React$Component) {
         elevation: 4,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 39
+          lineNumber: 64
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: classes.header,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 40
+          lineNumber: 65
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 41
+          lineNumber: 66
         }
       }, "\u8BC4\u8BBA\u6846")), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__material_ui_core__["TextField"], {
         required: true,
         id: "check",
         label: "\u9A8C\u8BC1",
         margin: "dense",
+        value: this.state.check,
         onChange: function onChange(event) {
-          return _this2.setState({
+          return _this3.setState({
             check: event.target.value
           });
         },
         helperText: "\u4E3A\u4E86\u9A8C\u8BC1\u60A8\u662F\u4EBA\u7C7B\uFF0C\u8BF7\u5C06\u516B\u52A0\u4E00\u7684\u7ED3\u679C\uFF08\u963F\u62C9\u4F2F\u6570\u5B57\u4E5D\uFF09\u586B\u5199\u5728\u4E0A\u9762",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 43
+          lineNumber: 68
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__material_ui_core__["TextField"], {
         required: true,
         id: "name",
         label: "\u540D\u79F0",
         margin: "dense",
+        value: this.state.name,
         onChange: function onChange(event) {
-          return _this2.setState({
+          return _this3.setState({
             name: event.target.value
           });
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 51
+          lineNumber: 77
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__material_ui_core__["TextField"], {
         required: true,
@@ -778,39 +813,39 @@ function (_React$Component) {
         defaultValue: "",
         placeholder: "Leave a comment",
         margin: "dense",
-        helperText: "\u652F\u6301Markdown",
+        value: this.state.content,
         onChange: function onChange(event) {
-          return _this2.setState({
-            comments: event.target.value
+          return _this3.setState({
+            content: event.target.value
           });
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 58
+          lineNumber: 85
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
         className: classes.contentLayout,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 70
+          lineNumber: 97
         }
       }, __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__material_ui_core__["FormControlLabel"], {
         control: __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__material_ui_core__["Checkbox"], {
           checked: this.state.rememberMe,
           onChange: function onChange(event) {
-            _this2.setState({
+            _this3.setState({
               rememberMe: event.target.checked
             });
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 73
+            lineNumber: 100
           }
         }),
         label: "\u8BB0\u4F4F\u6211",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 71
+          lineNumber: 98
         }
       }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__material_ui_core__["Button"], {
         raised: "true",
@@ -819,7 +854,7 @@ function (_React$Component) {
         onClick: this.handleSend,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 79
+          lineNumber: 106
         }
       }, "\u8BC4\u8BBA")));
     }

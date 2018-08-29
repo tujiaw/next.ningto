@@ -5,10 +5,21 @@ import net from '../common/net';
 
 class Comments extends React.Component {
   state = {
+    comments: [],
     name: '',
     check: '',
-    comments: '',
+    content: '',
     rememberMe: false,
+  }
+
+  componentDidMount() {
+    if (this.props.id) {
+      net.getComments(this.props.id).then((json) => {
+        if (json) {
+          this.setState({ comments: json })
+        }
+      })
+    }
   }
 
   handleSend = () => {
@@ -17,20 +28,34 @@ class Comments extends React.Component {
       return;
     }
 
-    if (this.state.name.length === 0) {
+    if (this.state.name.length < 3 || this.state.name.length > 20) {
       alert('名称不合法');
       return;
     }
-    if (this.state.comments.length === 0) {
+    if (this.state.content.length < 3 || this.state.content.length > 1024 * 3) {
       alert('评论内容不合法');
       return;
     }
 
     net.addComments({
-      id: this.props.id,
+      postId: this.props.id,
       name: this.state.name,
-      comments: this.state.comments
-    });
+      content: this.state.content
+    }).then(result => {
+      if (result.length > 0) {
+        net.getComments(this.props.id).then((json) => {
+          if (json) {
+            this.setState({ comments: json })
+          }
+        })
+      }
+    })
+    
+    this.setState({
+      check: '',
+      name: '',
+      content: ''
+    })
   }
 
   render() {
@@ -45,6 +70,7 @@ class Comments extends React.Component {
           id="check"
           label="验证"
           margin='dense'
+          value={this.state.check}
           onChange={(event) => this.setState({check: event.target.value })}
           helperText="为了验证您是人类，请将八加一的结果（阿拉伯数字九）填写在上面"
         />
@@ -53,6 +79,7 @@ class Comments extends React.Component {
           id="name"
           label="名称"
           margin='dense'
+          value={this.state.name}
           onChange={(event) => this.setState({name: event.target.value })}
         />
         <TextField
@@ -64,8 +91,8 @@ class Comments extends React.Component {
           defaultValue=""
           placeholder="Leave a comment"
           margin="dense"
-          helperText="支持Markdown"
-          onChange={(event) => this.setState({comments: event.target.value })}
+          value={this.state.content}
+          onChange={(event) => this.setState({content: event.target.value })}
         />
         <div className={classes.contentLayout}>
           <FormControlLabel
