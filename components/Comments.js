@@ -66,7 +66,7 @@ class Comments extends React.Component {
         </div>
         <div className={classes.oneCommentFooter}>
           <span className={classes.name}>{'评论者:' + comment.name}</span>
-          <span className={classes.date}>{ comment.date || new Date().toDateString() }</span>
+          <span className={classes.date}>{ comment.created_at || new Date().toDateString() }</span>
         </div>
         <Divider />
       </div>
@@ -161,7 +161,7 @@ const styles = theme => ({
   name: {
     marginRight: '20px',
     fontSize: '13px',
-    color: '#009a61',
+    color: '#3f51b5',
   },
   date: {
     fontSize: '12px',
@@ -169,7 +169,7 @@ const styles = theme => ({
   },
   oneCommentFooter: {
     display: 'flex',
-    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
     height: '50px',
     lineHeight: '50px'
   }
