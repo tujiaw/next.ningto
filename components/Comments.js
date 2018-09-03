@@ -13,13 +13,29 @@ class Comments extends React.Component {
     rememberMe: false,
   }
 
-  componentDidMount() {
-    if (this.props.id) {
-      net.getComments(this.props.id).then((json) => {
+  updateComments = (id) => {
+    if (id) {
+      net.getComments(id).then((json) => {
         if (json) {
           this.setState({ comments: json })
         }
       })
+
+      if (window.localStorage && window.localStorage['comments']) {
+        Object.assign(this.state, JSON.parse(window.localStorage['comments']))
+      }
+    }
+  }
+
+  componentDidMount() {
+    this.updateComments(this.props.id)
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.id && nextProps.id.length) {
+      this.updateComments(nextProps.id)
+    } else {
+      this.setState({comments: []});
     }
   }
 
@@ -50,9 +66,15 @@ class Comments extends React.Component {
       })
     })
     
+    if (window.localStorage) {
+      window.localStorage['comments'] = JSON.stringify({
+        rememberMe: this.state.rememberMe,
+        name: this.state.name
+      })
+    }
+
     this.setState({
       check: '',
-      name: '',
       content: ''
     })
   }
