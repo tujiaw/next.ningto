@@ -16,8 +16,8 @@ class Comments extends React.Component {
   updateComments = (id) => {
     if (id) {
       net.getComments(id).then((json) => {
-        if (json) {
-          this.setState({ comments: json })
+        if (json && json.content) {
+          this.setState({ comments: json.content })
         }
       })
 
@@ -60,8 +60,8 @@ class Comments extends React.Component {
       content: this.state.content
     }).then(() => {
       net.getComments(this.props.id).then((json) => {
-        if (json) {
-          this.setState({ comments: json })
+        if (json && json.content) {
+          this.setState({ comments: json.content })
         }
       })
     })
