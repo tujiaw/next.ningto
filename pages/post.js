@@ -8,11 +8,11 @@ const Post = (props) => {
   console.log('url:' + props.url);
     return (
       <MainLayout rightSidebarData={props.rightSidebarData}>
-        <ShowPost postData={props.postData} />
         <Head>
           <link rel="stylesheet" href="/static/css/github.css" />
           <link rel="stylesheet" href="/static/css/github-markdown.min.css" />
         </Head>
+        <ShowPost postData={props.postData} />
       </MainLayout>
     )
 }
